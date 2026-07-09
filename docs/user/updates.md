@@ -1,19 +1,19 @@
 # Updates
 
-LocalVoice checks the public GitHub release channel for stable updates:
+BLXVoice checks the private Bitslix GitHub release channel for stable updates:
 
 ```
-https://github.com/iptoux/localvoice/releases/latest/download/latest.json
+https://github.com/Bitslix/blxVoice/releases/latest/download/latest.json
 ```
 
-When a new release is available, LocalVoice shows a native notification and an in-app banner at the top of the main window. Updates are never downloaded or installed automatically.
+When a new release is available, BLXVoice shows a native notification and an in-app banner at the top of the main window. Updates are never downloaded or installed automatically.
 
 ## Install an Update
 
-1. Open the main LocalVoice window.
+1. Open the main BLXVoice window.
 2. Click **Update Now** in the update banner.
 3. Wait for the download to finish.
-4. LocalVoice restarts to install the update.
+4. BLXVoice restarts to install the update.
 
 ## Disable Automatic Checks
 

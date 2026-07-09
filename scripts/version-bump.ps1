@@ -150,7 +150,7 @@ function Update-PackageJson {
     $content = $content -replace $pattern, $replacement
 
     $packages = @(
-        'localvoice',
+        'blxvoice',
         '@automaker/utils',
         '@automaker/types',
         '@automaker/spec-parser',

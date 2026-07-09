@@ -37,7 +37,7 @@ describe("UpdateBanner", () => {
   it("renders an available update and install action", () => {
     render(<UpdateBanner />);
 
-    expect(screen.getByText("LocalVoice 0.3.0 is available")).toBeInTheDocument();
+    expect(screen.getByText("BLXVoice 0.3.0 is available")).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /Update Now/i })).toBeEnabled();
   });
 
@@ -60,7 +60,7 @@ describe("UpdateBanner", () => {
     fireEvent.click(screen.getByLabelText("Dismiss update"));
 
     await waitFor(() => {
-      expect(screen.queryByText("LocalVoice 0.3.0 is available")).not.toBeInTheDocument();
+      expect(screen.queryByText("BLXVoice 0.3.0 is available")).not.toBeInTheDocument();
     });
   });
 

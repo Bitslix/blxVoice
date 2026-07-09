@@ -21,7 +21,7 @@ pub fn open(app: &tauri::AppHandle) -> Result<DbConn, String> {
 
     std::fs::create_dir_all(&app_dir).map_err(|e| format!("Cannot create app data dir: {e}"))?;
 
-    let db_path = app_dir.join("localvoice.db");
+    let db_path = app_dir.join("blxvoice.db");
 
     open_with_recovery(&db_path)
 }
@@ -35,7 +35,7 @@ fn open_with_recovery(db_path: &std::path::Path) -> Result<DbConn, String> {
                 .duration_since(std::time::UNIX_EPOCH)
                 .map(|d| d.as_secs())
                 .unwrap_or(0);
-            let backup_path = db_path.with_file_name(format!("localvoice.db.bak-{ts}"));
+            let backup_path = db_path.with_file_name(format!("blxvoice.db.bak-{ts}"));
             let _ = std::fs::rename(db_path, &backup_path);
             log::warn!(
                 "DB open/migration failed ({e}). Backed up to {} and created a fresh database.",

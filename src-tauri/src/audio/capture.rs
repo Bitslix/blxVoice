@@ -79,7 +79,7 @@ pub fn start_capture(
         }
     });
 
-    let temp_path = std::env::temp_dir().join(format!("localvoice_{}.wav", uuid::Uuid::new_v4()));
+    let temp_path = std::env::temp_dir().join(format!("blxvoice_{}.wav", uuid::Uuid::new_v4()));
 
     // Silence tracking state shared with the audio callback.
     let silence_start = Arc::new(Mutex::new(None::<Instant>));

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# create-release.sh — Build LocalVoice locally and publish a GitHub release.
+# create-release.sh — Build BLXVoice locally and publish a GitHub release.
 #
 # Usage:
 #   ./scripts/create-release.sh [OPTIONS]
@@ -329,24 +329,24 @@ if $APPEND; then
 else
     step "Publishing GitHub release $TAG"
 
-    NOTES="## LocalVoice $TAG
+    NOTES="## BLXVoice $TAG
 
 ### Downloads
 
 | Platform | File |
 |----------|------|
-| Windows (MSI) | \`LocalVoice_*.msi\` |
-| Windows (NSIS) | \`LocalVoice_*-setup.exe\` |
-| macOS (Apple Silicon) | \`LocalVoice_*.dmg\` |
-| Linux (Debian/Ubuntu) | \`local-voice_*.deb\` |
-| Linux (AppImage) | \`LocalVoice_*.AppImage\` |
+| Windows (MSI) | \`BLXVoice_*.msi\` |
+| Windows (NSIS) | \`BLXVoice_*-setup.exe\` |
+| macOS (Apple Silicon) | \`BLXVoice_*.dmg\` |
+| Linux (Debian/Ubuntu) | \`blxvoice_*.deb\` |
+| Linux (AppImage) | \`BLXVoice_*.AppImage\` |
 
 > **Note:** Whisper models are not bundled. Download them from the **Models** page inside the app after installation.
 
 ### Changes
-See [commits since last release](https://github.com/iptoux/localvoice/commits/$TAG) for the full changelog."
+See [commits since last release](https://github.com/Bitslix/blxVoice/commits/$TAG) for the full changelog."
 
-    GH_ARGS=('release' 'create' "$TAG" '--title' "LocalVoice $TAG" '--notes' "$NOTES")
+    GH_ARGS=('release' 'create' "$TAG" '--title' "BLXVoice $TAG" '--notes' "$NOTES")
     $DRAFT      && GH_ARGS+=('--draft')
     $PRERELEASE && GH_ARGS+=('--prerelease')
     GH_ARGS+=("${ARTIFACTS[@]}")
@@ -361,9 +361,9 @@ if $DRY_RUN; then
     echo -e "${YELLOW}  DRY-RUN complete — no changes made.${NC}"
 elif $APPEND; then
     echo -e "${GREEN}  Artifacts added to release $TAG.${NC}"
-    echo -e "${CYAN}  https://github.com/iptoux/localvoice/releases/tag/$TAG${NC}"
+    echo -e "${CYAN}  https://github.com/Bitslix/blxVoice/releases/tag/$TAG${NC}"
 else
     echo -e "${GREEN}  Release $TAG published successfully!${NC}"
-    echo -e "${CYAN}  https://github.com/iptoux/localvoice/releases/tag/$TAG${NC}"
+    echo -e "${CYAN}  https://github.com/Bitslix/blxVoice/releases/tag/$TAG${NC}"
 fi
 echo -e "${MAGENTA}========================================${NC}"

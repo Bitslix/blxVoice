@@ -4,7 +4,7 @@ This document shows how state flows between Rust AppState, Tauri events/commands
 
 ## Overview
 
-LocalVoice uses a dual-language architecture with two state synchronization patterns:
+BLXVoice uses a dual-language architecture with two state synchronization patterns:
 
 | Pattern | Mechanism | Direction | Latency |
 |---------|-----------|-----------|---------|

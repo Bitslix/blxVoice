@@ -2,7 +2,7 @@
 
 ## What Was Built
 
-LocalVoice now has a hybrid transcription runtime that keeps Whisper as the stable default while adding:
+BLXVoice now has a hybrid transcription runtime that keeps Whisper as the stable default while adding:
 
 - Parakeet GGUF transcription through bundled `parakeet-cli`.
 - Optional NVIDIA NeMo `.nemo` transcription through a Python worker.
@@ -33,7 +33,7 @@ src-tauri/parakeet-runtime/
   generated runtime libraries staged by CI/release builds
 
 src-tauri/resources/nemo_worker/
-  localvoice_nemo_worker.py
+  blxvoice_nemo_worker.py
   manifest.json
 
 .github/actions/setup-parakeet-cpp/
@@ -47,7 +47,7 @@ The model registry is the contract between UI, database, and runtime selection. 
 - `scripts/bootstrap.ps1` and `scripts/bootstrap.sh` install `parakeet-cli-*` for local development.
 - `ci.yml` runs `setup-whisper` and `setup-parakeet-cpp` before Rust tests.
 - `release.yml` runs both setup actions before each platform build.
-- Release jobs audit `whisper-cli-*`, `parakeet-cli-*`, `parakeet-stream-worker-*`, `src-tauri/parakeet-runtime/`, `resources/nemo_worker/localvoice_nemo_worker.py`, and `resources/nemo_worker/manifest.json`.
+- Release jobs audit `whisper-cli-*`, `parakeet-cli-*`, `parakeet-stream-worker-*`, `src-tauri/parakeet-runtime/`, `resources/nemo_worker/blxvoice_nemo_worker.py`, and `resources/nemo_worker/manifest.json`.
 - `.nemo` load/streaming tests remain manual or self-hosted GPU work because GitHub-hosted runners do not provide a stable NeMo/CUDA environment.
 
 ## Public Release Behavior

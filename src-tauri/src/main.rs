@@ -2,5 +2,5 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 fn main() {
-    localvoice_lib::run()
+    blxvoice_lib::run()
 }

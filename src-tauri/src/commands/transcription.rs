@@ -35,7 +35,7 @@ pub fn get_last_transcription(state: State<AppState>) -> CmdResult<Option<Transc
     Ok(state.last_transcription.lock().unwrap().clone())
 }
 
-/// Lists installed transcription engine capabilities known to LocalVoice.
+/// Lists installed transcription engine capabilities known to BLXVoice.
 #[tauri::command]
 pub fn list_transcription_engines() -> CmdResult<Vec<engine::TranscriptionEngineInfo>> {
     Ok(engine::list_engines())

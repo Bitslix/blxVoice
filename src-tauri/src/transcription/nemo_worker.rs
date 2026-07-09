@@ -263,7 +263,7 @@ pub(crate) fn resolve_worker_script(app: &AppHandle) -> CmdResult<PathBuf> {
     let manifest_path = Path::new(env!("CARGO_MANIFEST_DIR"))
         .join("resources")
         .join("nemo_worker")
-        .join("localvoice_nemo_worker.py");
+        .join("blxvoice_nemo_worker.py");
     if manifest_path.exists() {
         return Ok(manifest_path);
     }
@@ -273,7 +273,7 @@ pub(crate) fn resolve_worker_script(app: &AppHandle) -> CmdResult<PathBuf> {
         .resource_dir()
         .map_err(|e| format!("Failed to resolve resource dir: {e}"))?
         .join("nemo_worker")
-        .join("localvoice_nemo_worker.py");
+        .join("blxvoice_nemo_worker.py");
     if resource_path.exists() {
         return Ok(resource_path);
     }

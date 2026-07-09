@@ -1,6 +1,6 @@
 # PRD - Desktop Voice Dictation App
 
-**Working title:** `FlowDict`  
+**Working title:** `BLXVoice`  
 **Type:** Offline-first desktop dictation app  
 **Stack:** Tauri v2 + TypeScript + Rust + whisper.cpp  
 **Primary platform:** Windows first, later macOS/Linux  
@@ -1204,7 +1204,7 @@ For MVP, start with **whisper.cpp as a sidecar** rather than direct FFI bindings
 ## 19. Proposed Repository Layout
 
 ```text
-flowdict/
+blxvoice/
   src/
     components/
     features/

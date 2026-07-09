@@ -203,7 +203,7 @@ pub async fn install_pending_update(
     push_log(
         "info",
         "updater::install",
-        "Update installed; restarting LocalVoice.",
+        "Update installed; restarting BLXVoice.",
     );
     app.restart();
 }
@@ -270,7 +270,7 @@ async fn check_for_update_inner(
             let _ = app
                 .notification()
                 .builder()
-                .title("LocalVoice update available")
+                .title("BLXVoice update available")
                 .body(format!(
                     "Version {} is ready to download from GitHub releases.",
                     info.version

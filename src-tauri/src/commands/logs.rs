@@ -80,7 +80,7 @@ pub fn export_logs() -> CmdResult<()> {
     let path = rfd::FileDialog::new()
         .set_title("Export Logs")
         .add_filter("JSON", &["json"])
-        .set_file_name("localvoice-logs.json")
+        .set_file_name("blxvoice-logs.json")
         .save_file()
         .ok_or_else(|| AppError("Export cancelled".into()))?;
 

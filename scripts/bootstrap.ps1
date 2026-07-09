@@ -1,4 +1,4 @@
-# LocalVoice Development Environment Bootstrap Script
+# BLXVoice Development Environment Bootstrap Script
 # Run this script to set up the development environment on Windows
 
 param(
@@ -58,7 +58,7 @@ function Test-Prerequisite {
 }
 
 Write-Host "========================================" -ForegroundColor Magenta
-Write-Host "  LocalVoice Dev Environment Bootstrap" -ForegroundColor Magenta
+Write-Host "  BLXVoice Dev Environment Bootstrap" -ForegroundColor Magenta
 Write-Host "========================================" -ForegroundColor Magenta
 
 # Check prerequisites

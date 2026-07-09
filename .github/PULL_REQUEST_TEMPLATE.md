@@ -1,11 +1,11 @@
 name: Pull Request
-description: Submit changes to LocalVoice
+description: Submit internal BLXVoice changes
 labels: []
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for contributing to LocalVoice!
+        Thanks for working on BLXVoice.
 
         Please make sure your PR:
         - Targets the `main` branch

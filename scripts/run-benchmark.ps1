@@ -1,11 +1,11 @@
 #!/usr/bin/env pwsh
 <#
 .SYNOPSIS
-    Run LocalVoice transcription benchmarks.
+    Run BLXVoice transcription benchmarks.
 
 .DESCRIPTION
     Executes the run_transcription_benchmark Tauri command and reports timing metrics.
-    Requires the LocalVoice app to be running with Tauri IPC enabled.
+    Requires the BLXVoice app to be running with Tauri IPC enabled.
 
 .PARAMETER Language
     Language code (de, en, auto). Defaults to settings default.
@@ -60,7 +60,7 @@ function Invoke-Benchmark {
     return $response
 }
 
-Write-Host "LocalVoice Transcription Benchmark" -ForegroundColor Cyan
+Write-Host "BLXVoice Transcription Benchmark" -ForegroundColor Cyan
 Write-Host "===================================" -ForegroundColor Cyan
 Write-Host "Duration: ${DurationMs}ms | Iterations: $Iterations" -ForegroundColor Yellow
 Write-Host ""

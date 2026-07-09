@@ -2,7 +2,7 @@
 
 ## What It Does
 
-The Dictionary page lets you teach LocalVoice how to fix words that whisper.cpp consistently mishears. Correction rules are applied automatically to every transcript before it reaches your clipboard.
+The Dictionary page lets you teach BLXVoice how to fix words that whisper.cpp consistently mishears. Correction rules are applied automatically to every transcript before it reaches your clipboard.
 
 ## Correction Rules
 

@@ -23,7 +23,7 @@ Use **SQLite** as the single local database for all persistence needs.
 ## Consequences
 
 ### Positive
-- **Single file**: All data in one `localvoice.db` file, easy to backup/export
+- **Single file**: All data in one `blxvoice.db` file, easy to backup/export
 - **No setup**: Embedded, no server installation required
 - **Portable**: Works across Windows, macOS, Linux
 - **Mature**: Excellent Rust support via `rusqlite` or `sqlx`

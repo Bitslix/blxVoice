@@ -5,7 +5,7 @@ fn exe_path() -> Result<String, String> {
         .map_err(|e| e.to_string())
 }
 
-/// Enables or disables launching LocalVoice on OS login.
+/// Enables or disables launching BLXVoice on OS login.
 ///
 /// - Windows: writes/removes a registry value under `HKCU\...\Run`
 /// - macOS:   writes/removes a launchd plist in `~/Library/LaunchAgents/`
@@ -27,7 +27,7 @@ pub fn set_autostart(enabled: bool) -> Result<(), String> {
     set_autostart_impl(enabled)
 }
 
-/// Returns `true` if the LocalVoice autostart entry is present.
+/// Returns `true` if the BLXVoice autostart entry is present.
 /// Always returns `false` in debug builds.
 pub fn get_autostart() -> bool {
     #[cfg(debug_assertions)]
@@ -57,11 +57,11 @@ fn set_autostart_impl(enabled: bool) -> Result<(), String> {
     if enabled {
         let path = exe_path()?;
         run_key
-            .set_value("LocalVoice", &path)
+            .set_value("BLXVoice", &path)
             .map_err(|e| format!("Cannot write registry value: {e}"))?;
     } else {
         // Deleting a non-existent value is silently ignored.
-        run_key.delete_value("LocalVoice").unwrap_or(());
+        run_key.delete_value("BLXVoice").unwrap_or(());
     }
     Ok(())
 }
@@ -73,7 +73,7 @@ fn get_autostart_impl() -> bool {
 
     let hkcu = RegKey::predef(HKEY_CURRENT_USER);
     if let Ok(run_key) = hkcu.open_subkey(r"Software\Microsoft\Windows\CurrentVersion\Run") {
-        run_key.get_value::<String, _>("LocalVoice").is_ok()
+        run_key.get_value::<String, _>("BLXVoice").is_ok()
     } else {
         false
     }
@@ -85,7 +85,7 @@ fn get_autostart_impl() -> bool {
 fn macos_plist_path() -> Result<std::path::PathBuf, String> {
     let home =
         std::env::var("HOME").map_err(|_| "HOME environment variable not set".to_string())?;
-    Ok(std::path::Path::new(&home).join("Library/LaunchAgents/com.localvoice.app.plist"))
+    Ok(std::path::Path::new(&home).join("Library/LaunchAgents/com.bitslix.blxvoice.plist"))
 }
 
 #[cfg(target_os = "macos")]
@@ -104,7 +104,7 @@ fn set_autostart_impl(enabled: bool) -> Result<(), String> {
 <plist version="1.0">
 <dict>
     <key>Label</key>
-    <string>com.localvoice.app</string>
+    <string>com.bitslix.blxvoice</string>
     <key>ProgramArguments</key>
     <array>
         <string>{exe}</string>
@@ -114,9 +114,9 @@ fn set_autostart_impl(enabled: bool) -> Result<(), String> {
     <key>KeepAlive</key>
     <false/>
     <key>StandardOutPath</key>
-    <string>/tmp/localvoice.log</string>
+    <string>/tmp/blxvoice.log</string>
     <key>StandardErrorPath</key>
-    <string>/tmp/localvoice.err</string>
+    <string>/tmp/blxvoice.err</string>
 </dict>
 </plist>
 "#
@@ -144,7 +144,7 @@ fn linux_desktop_path() -> Result<std::path::PathBuf, String> {
         let home = std::env::var("HOME").unwrap_or_default();
         format!("{home}/.config")
     });
-    Ok(std::path::Path::new(&config_home).join("autostart/localvoice.desktop"))
+    Ok(std::path::Path::new(&config_home).join("autostart/blxvoice.desktop"))
 }
 
 #[cfg(target_os = "linux")]
@@ -160,7 +160,7 @@ fn set_autostart_impl(enabled: bool) -> Result<(), String> {
         let contents = format!(
             "[Desktop Entry]\n\
              Type=Application\n\
-             Name=LocalVoice\n\
+             Name=BLXVoice\n\
              Comment=Offline-first desktop voice dictation\n\
              Exec={exe}\n\
              Hidden=false\n\

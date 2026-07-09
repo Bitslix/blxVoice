@@ -1,5 +1,5 @@
 #!/bin/bash
-# LocalVoice Development Environment Bootstrap Script
+# BLXVoice Development Environment Bootstrap Script
 # Run this script to set up the development environment on macOS or Linux.
 
 set -e
@@ -106,7 +106,7 @@ check_prerequisite() {
 }
 
 echo -e "${MAGENTA}========================================"
-echo -e "  LocalVoice Dev Environment Bootstrap"
+echo -e "  BLXVoice Dev Environment Bootstrap"
 echo -e "  Platform: $OS / $ARCH ($RUST_TRIPLE)"
 echo -e "========================================${NC}"
 
@@ -250,7 +250,7 @@ if [[ "$SKIP_PARAKEET" != "true" ]]; then
 
         PARAKEET_URL="https://github.com/mudler/parakeet.cpp/releases/download/${PARAKEET_TAG}/${PARAKEET_ASSET}"
         TEMP_ARCHIVE="/tmp/${PARAKEET_ASSET}"
-        EXTRACT_DIR="/tmp/localvoice-parakeet-$$"
+        EXTRACT_DIR="/tmp/blxvoice-parakeet-$$"
 
         echo "Downloading from $PARAKEET_URL..."
         if curl -L --fail --progress-bar "$PARAKEET_URL" -o "$TEMP_ARCHIVE"; then

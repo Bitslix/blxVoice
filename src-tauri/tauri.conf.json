@@ -1,8 +1,8 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "LocalVoice",
+  "productName": "BLXVoice",
   "version": "1.0.1",
-  "identifier": "com.localvoice.app",
+  "identifier": "com.bitslix.blxvoice",
   "build": {
     "beforeDevCommand": "npm run dev",
     "devUrl": "http://localhost:1420",
@@ -13,7 +13,7 @@
     "windows": [
       {
         "label": "pill",
-        "title": "LocalVoice",
+        "title": "BLXVoice",
         "width": 220,
         "height": 70,
         "minWidth": 180,
@@ -33,7 +33,7 @@
       },
       {
         "label": "main",
-        "title": "LocalVoice",
+        "title": "BLXVoice",
         "width": 1100,
         "height": 720,
         "minWidth": 800,
@@ -62,7 +62,7 @@
       "icons/icon.ico"
     ],
     "resources": [
-      "resources/nemo_worker/localvoice_nemo_worker.py",
+      "resources/nemo_worker/blxvoice_nemo_worker.py",
       "resources/nemo_worker/manifest.json",
       "parakeet-runtime"
     ],
@@ -76,7 +76,7 @@
     "updater": {
       "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEMxNzcyMjM0OEQyOTdBMzQKUldRMGVpbU5OQ0ozd1pFbzQwaURuaFRjN3lTOGpzeWl6Z3FkNXNwYkpBcGo5eDkyWmN6SmlzblYK",
       "endpoints": [
-        "https://github.com/iptoux/localvoice/releases/latest/download/latest.json"
+        "https://github.com/Bitslix/blxVoice/releases/latest/download/latest.json"
       ],
       "windows": {
         "installMode": "passive"

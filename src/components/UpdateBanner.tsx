@@ -35,7 +35,7 @@ export function UpdateBanner() {
           </div>
           <div className="min-w-0">
             <p className="text-sm font-medium text-foreground">
-              LocalVoice {info.version} is available
+              BLXVoice {info.version} is available
             </p>
             <p className="text-xs text-muted-foreground">
               Current version: {info.currentVersion}

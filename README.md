@@ -1,8 +1,8 @@
 <div align="center">
 
-<img src="docs/localvoice_appicon_transparent.png" alt="LocalVoice" width="120"/>
+<img src="docs/blxvoice_appicon_transparent.png" alt="BLXVoice" width="120"/>
 
-# LocalVoice
+# BLXVoice
 
 **Offline-first desktop voice dictation — no cloud, no telemetry, just your voice.**
 
@@ -17,9 +17,9 @@ Record with a global shortcut, transcribe locally with [whisper.cpp](https://git
 
 ---
 
-## What is LocalVoice?
+## What is BLXVoice?
 
-LocalVoice is a lightweight desktop app that turns your voice into text — entirely on your machine. There's no account to create, no audio sent to a server, and no subscription. Just press a shortcut, speak, and your words appear wherever your cursor is.
+BLXVoice is a lightweight desktop app that turns your voice into text — entirely on your machine. There's no account to create, no audio sent to a server, and no subscription. Just press a shortcut, speak, and your words appear wherever your cursor is.
 
 It's built for developers, writers, and anyone who wants fast, private voice input as part of their daily workflow.
 
@@ -32,7 +32,7 @@ It's built for developers, writers, and anyone who wants fast, private voice inp
 - **100% local transcription** — powered by bundled Whisper/parakeet.cpp sidecars or an optional local NeMo runtime; your audio never leaves your machine
 - **Multiple model runtimes** — download and switch between Whisper GGML, Parakeet GGUF, and optional `.nemo` models per language
 - **Smart output** — insert directly into the active app, copy to clipboard, or preview first
-- **Custom dictionary** — teach LocalVoice your vocabulary, acronyms, and corrections
+- **Custom dictionary** — teach BLXVoice your vocabulary, acronyms, and corrections
 - **Filler word removal** — automatically strips "um", "uh", and other fillers
 - **Ambiguity detection** — flags low-confidence phrases for your review
 - **Session history** — browse, search, and filter past transcriptions with bulk select, delete, and export
@@ -110,9 +110,9 @@ It's built for developers, writers, and anyone who wants fast, private voice inp
 
 ### Auto Updates
 
-Release builds check `https://github.com/iptoux/localvoice/releases/latest/download/latest.json` for the latest stable GitHub release. LocalVoice shows a native notification and an in-app banner when an update is available, but it only downloads and installs after the user clicks **Update Now**. The automatic startup check can be disabled in **Settings -> System -> Automatic updates**.
+Release builds check `https://github.com/Bitslix/blxVoice/releases/latest/download/latest.json` for the latest stable GitHub release in the private Bitslix repository. BLXVoice shows a native notification and an in-app banner when an update is available, but it only downloads and installs after the user clicks **Update Now**. The automatic startup check can be disabled in **Settings -> System -> Automatic updates**.
 
-Updater-capable public releases must be built by the GitHub release workflow so the signed update bundles, `.sig` files, and `latest.json` manifest are uploaded together. Local release scripts are useful for manual installer builds, but they do not publish a complete updater channel by themselves.
+Updater-capable releases must be built by the GitHub release workflow so the signed update bundles, `.sig` files, and `latest.json` manifest are uploaded together. Local release scripts are useful for manual installer builds, but they do not publish a complete updater channel by themselves.
 
 ### Prerequisites
 
@@ -144,15 +144,15 @@ Clone the repo and run the bootstrap script. It handles dependencies, Whisper/pa
 
 **Windows (PowerShell):**
 ```powershell
-git clone https://github.com/your-username/localvoice.git
-cd localvoice
+git clone https://github.com/Bitslix/blxVoice.git
+cd blxVoice
 .\scripts\bootstrap.ps1
 ```
 
 **macOS / Linux:**
 ```bash
-git clone https://github.com/your-username/localvoice.git
-cd localvoice
+git clone https://github.com/Bitslix/blxVoice.git
+cd blxVoice
 ./scripts/bootstrap.sh
 ```
 
@@ -186,7 +186,7 @@ On Windows, `pnpm tauri build` runs `pnpm run tauri:prepare` before Tauri bundle
 .\scripts\create-release.ps1 -LocalBuild
 ```
 
-Use `.\scripts\create-release.ps1 -LocalBuild -UpdaterArtifacts` only when you intentionally want signed updater artifacts locally. In that mode the script reads the updater key from `%USERPROFILE%\.tauri\localvoice-updater.key` if `TAURI_SIGNING_PRIVATE_KEY` is not already set.
+Use `.\scripts\create-release.ps1 -LocalBuild -UpdaterArtifacts` only when you intentionally want signed updater artifacts locally. In that mode the script reads the updater key from `%USERPROFILE%\.tauri\blxvoice-updater.key` if `TAURI_SIGNING_PRIVATE_KEY` is not already set.
 
 CI and release jobs install dependencies with `pnpm install --frozen-lockfile`.
 When updating Tauri, keep the Rust `tauri` crate and frontend
@@ -203,7 +203,7 @@ The bootstrap script and Windows Tauri build preparation handle this automatical
 | parakeet.cpp | `parakeet-cli-x86_64-pc-windows-msvc.exe` |
 | parakeet.cpp streaming worker | `parakeet-stream-worker-x86_64-pc-windows-msvc.exe` |
 
-Parakeet sidecars are pinned to `mudler/parakeet.cpp` `v0.3.2` and must be checksum-verified or built from the pinned source before release packaging. Public installers bundle the CPU/portable sidecars only; model weights, `.nemo` checkpoints, CUDA stacks, and Python/NeMo environments are never bundled in the base installer.
+Parakeet sidecars are pinned to `mudler/parakeet.cpp` `v0.3.2` and must be checksum-verified or built from the pinned source before release packaging. Installers bundle the CPU/portable sidecars only; model weights, `.nemo` checkpoints, CUDA stacks, and Python/NeMo environments are never bundled in the base installer.
 
 The Parakeet streaming worker can also produce small runtime libraries during CI/release builds. Those files are staged under `src-tauri/parakeet-runtime/` and bundled as Tauri resources; installed Windows builds load them from the bundled `resources/parakeet-runtime/` directory. The source directory is kept in Git, but generated runtime files are ignored.
 
@@ -261,11 +261,11 @@ Use the pinned `v0.3.2` CPU/portable release assets from [mudler/parakeet.cpp](h
 ### Platform-specific notes
 
 **macOS — Auto-insert (paste):**
-`LocalVoice.app` must be granted Accessibility permission:
-System Settings → Privacy & Security → Accessibility → enable LocalVoice.
+`BLXVoice.app` must be granted Accessibility permission:
+System Settings → Privacy & Security → Accessibility → enable BLXVoice.
 
 **macOS — Autostart:**
-The autostart toggle writes a launchd plist to `~/Library/LaunchAgents/com.localvoice.app.plist`.
+The autostart toggle writes a launchd plist to `~/Library/LaunchAgents/com.bitslix.blxvoice.plist`.
 
 **Linux — Auto-insert (paste):**
 Install the tool matching your display server:
@@ -279,13 +279,13 @@ sudo apt-get install libayatana-appindicator3-dev
 ```
 
 **Linux — Autostart:**
-The autostart toggle writes an XDG `.desktop` file to `~/.config/autostart/localvoice.desktop`.
+The autostart toggle writes an XDG `.desktop` file to `~/.config/autostart/blxvoice.desktop`.
 
 ---
 
 ## Configuration
 
-LocalVoice stores all settings in a local SQLite database — no config files to edit by hand. Everything is configurable through the app's Settings page:
+BLXVoice stores all settings in a local SQLite database — no config files to edit by hand. Everything is configurable through the app's Settings page:
 
 | Setting | Description |
 |---|---|
@@ -306,11 +306,11 @@ LocalVoice stores all settings in a local SQLite database — no config files to
 
 ## Usage
 
-1. Launch LocalVoice. By default the main window opens; the recording overlay stays hidden until you record.
+1. Launch BLXVoice. By default the main window opens; the recording overlay stays hidden until you record.
 2. Press your configured shortcut (default: customizable in Settings) to start recording.
 3. Speak. The default recording overlay appears bottom-center with a waveform only.
 4. Press the shortcut again (or let silence detection stop it automatically).
-5. LocalVoice transcribes locally and sends the text to your active app or clipboard.
+5. BLXVoice transcribes locally and sends the text to your active app or clipboard.
 
 Switch **Settings -> Appearance -> Pill mode** to **Classic pill** if you prefer the older persistent compact/expanded pill with transcript preview.
 
@@ -343,42 +343,39 @@ Full developer reference: [docs/dev/index.md](docs/dev/index.md)
 
 ---
 
-## Contributing
+## Internal Development
 
-Contributions are welcome. Here's how to get involved:
+BLXVoice is a private Bitslix product. Work is tracked through the private GitHub repository and internal project channels.
 
 **Reporting bugs**
-Open an issue with a clear description, steps to reproduce, your OS, and the LocalVoice version. Attach logs from the in-app log viewer or the plain-text log file at the app data directory (`%APPDATA%\com.localvoice.app\localvoice.log` on Windows) if relevant.
+Open an internal issue with a clear description, steps to reproduce, your OS, and the BLXVoice version. Attach logs from the in-app log viewer or the plain-text log file at the app data directory (`%APPDATA%\com.bitslix.blxvoice\blxvoice.log` on Windows) if relevant.
 
 **Suggesting features**
-Open a discussion or issue describing the use case and why it would be valuable. Check existing issues first to avoid duplicates.
+Open an internal issue or discussion describing the use case and why it would be valuable. Check existing issues first to avoid duplicates.
 
 **Submitting a pull request**
-1. Fork the repo and create a branch from `main`: `git checkout -b feat/your-feature`
+1. Create a feature branch from `main`: `git switch -c ms/xx-feature-name`
 2. Follow the existing code style — Rust uses standard `rustfmt`, TypeScript uses the project's ESLint config
 3. Keep PRs focused — one feature or fix per PR
 4. Update or add documentation if your change affects user-facing behavior
 5. Open the PR with a clear description of what changed and why
 
-**Good first issues**
-Look for issues tagged `good first issue` — these are scoped and well-documented entry points.
-
 ---
 
 ## Code signing policy
 
-Free code signing provided by SignPath.io, certificate by SignPath Foundation.
+Windows signing is managed by Bitslix through the configured signing provider.
 
-Official Windows release artifacts for LocalVoice are built from this public repository and submitted for signing only from the project's release workflow.
+Official Windows release artifacts for BLXVoice are built from the private Bitslix repository and submitted for signing only from the project's release workflow.
 
 Committers and reviewers:
-- @iptoux
+- Bitslix maintainers
 
 Approvers:
-- @iptoux
+- Bitslix release approvers
 
-Only release artifacts produced from the LocalVoice repository are submitted for signing.
-Third-party upstream binaries included in release packages remain attributed to their original upstream projects and are not individually signed under the LocalVoice project certificate.
+Only release artifacts produced from the Bitslix BLXVoice repository are submitted for signing.
+Third-party upstream binaries included in release packages remain attributed to their original upstream projects and are not individually signed under the BLXVoice project certificate.
 
 ---
 

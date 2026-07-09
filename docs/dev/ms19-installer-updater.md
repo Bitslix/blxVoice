@@ -1,11 +1,11 @@
 # MS-19 Installer and Updater
 
-LocalVoice uses the official Tauri v2 updater plugin for self-updates from GitHub Releases.
+BLXVoice uses the official Tauri v2 updater plugin for self-updates from GitHub Releases.
 
 ## Runtime Flow
 
 - `tauri-plugin-updater` is initialized in the Rust Tauri builder.
-- Release builds check `https://github.com/iptoux/localvoice/releases/latest/download/latest.json`.
+- Release builds check `https://github.com/Bitslix/blxVoice/releases/latest/download/latest.json`.
 - Automatic checks run on startup only outside debug builds and only when `app.auto_update` is not `false`.
 - The backend emits `update-available`, `update-download-progress`, and `update-error`.
 - The main window displays an update banner. Installation only starts when the user clicks **Update Now**.
@@ -42,7 +42,7 @@ To test signed updater artifacts locally, run:
 .\scripts\create-release.ps1 -LocalBuild -UpdaterArtifacts
 ```
 
-When updater artifacts are requested, the script uses `TAURI_SIGNING_PRIVATE_KEY` if it is already set. Otherwise it loads the private key from `%USERPROFILE%\.tauri\localvoice-updater.key` and clears the process environment variable before exiting.
+When updater artifacts are requested, the script uses `TAURI_SIGNING_PRIVATE_KEY` if it is already set. Otherwise it loads the private key from `%USERPROFILE%\.tauri\blxvoice-updater.key` and clears the process environment variable before exiting.
 
 ## GitHub Release Manifest
 

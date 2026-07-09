@@ -85,7 +85,7 @@ update_package_json() {
     content="${content//\"version\": \"${old_ver}\"/\"version\": \"${new_ver}\"}"
     content="${content//'\"version": "'"${old_ver}"'\"'/'\"version": "'"${new_ver}"'\"'}"
 
-    local all_pkgs=("localvoice" "@automaker/utils" "@automaker/types" "@automaker/spec-parser" "@automaker/prompts" "@automaker/platform" "@automaker/model-resolver" "@automaker/git-utils" "@automaker/dependency-resolver")
+    local all_pkgs=("blxvoice" "@automaker/utils" "@automaker/types" "@automaker/spec-parser" "@automaker/prompts" "@automaker/platform" "@automaker/model-resolver" "@automaker/git-utils" "@automaker/dependency-resolver")
     for dep_pkg in "${all_pkgs[@]}"; do
         local dep_pattern="\"${dep_pkg}\": \"${old_ver}\""
         local dep_replacement="\"${dep_pkg}\": \"${new_ver}\""

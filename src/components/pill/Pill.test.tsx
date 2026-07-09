@@ -68,10 +68,10 @@ describe("Pill", () => {
 
   // ── Idle state ────────────────────────────────────────────────────────────
 
-  it("shows LocalVoice title in idle state", () => {
+  it("shows BLXVoice title in idle state", () => {
     setStoreState({ recordingState: "idle" });
     render(<Pill />);
-    expect(screen.getByText("LocalVoice")).toBeInTheDocument();
+    expect(screen.getByText("BLXVoice")).toBeInTheDocument();
   });
 
   // ── Listening state ───────────────────────────────────────────────────────
@@ -107,7 +107,7 @@ describe("Pill", () => {
     setStoreState({ recordingState: "idle" });
     render(<Pill mode="overlay" />);
     expect(screen.queryByTestId("recording-overlay-pill")).not.toBeInTheDocument();
-    expect(screen.queryByText("LocalVoice")).not.toBeInTheDocument();
+    expect(screen.queryByText("BLXVoice")).not.toBeInTheDocument();
   });
 
   it("renders only the waveform while listening in overlay mode", () => {

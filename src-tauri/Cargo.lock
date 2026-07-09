@@ -412,6 +412,34 @@ dependencies = [
 ]
 
 [[package]]
+name = "blxvoice"
+version = "1.0.1"
+dependencies = [
+ "arboard",
+ "chrono",
+ "cpal",
+ "futures-util",
+ "hound",
+ "log",
+ "reqwest 0.12.28",
+ "rfd",
+ "rusqlite",
+ "serde",
+ "serde_json",
+ "sha2",
+ "tauri",
+ "tauri-build",
+ "tauri-plugin-global-shortcut",
+ "tauri-plugin-notification",
+ "tauri-plugin-opener",
+ "tauri-plugin-updater",
+ "tokio",
+ "uuid",
+ "windows-sys 0.59.0",
+ "winreg 0.52.0",
+]
+
+[[package]]
 name = "brotli"
 version = "8.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2515,34 +2543,6 @@ name = "litemap"
 version = "0.8.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "6373607a59f0be73a39b6fe456b8192fcc3585f602af20751600e974dd455e77"
-
-[[package]]
-name = "localvoice"
-version = "1.0.1"
-dependencies = [
- "arboard",
- "chrono",
- "cpal",
- "futures-util",
- "hound",
- "log",
- "reqwest 0.12.28",
- "rfd",
- "rusqlite",
- "serde",
- "serde_json",
- "sha2",
- "tauri",
- "tauri-build",
- "tauri-plugin-global-shortcut",
- "tauri-plugin-notification",
- "tauri-plugin-opener",
- "tauri-plugin-updater",
- "tokio",
- "uuid",
- "windows-sys 0.59.0",
- "winreg 0.52.0",
-]
 
 [[package]]
 name = "lock_api"

@@ -1,6 +1,6 @@
-# Contributing to LocalVoice
+# BLXVoice Internal Development
 
-Thank you for your interest in contributing to LocalVoice!
+BLXVoice is a private Bitslix product. This guide is for maintainers and internal collaborators working in the private repository.
 
 ## Development Setup
 
@@ -73,7 +73,7 @@ Update docs when adding or changing features.
 
 ## Reporting Issues
 
-Use the [issue templates](.github/ISSUE_TEMPLATE.md) for bug reports and feature requests. Include:
+Use the GitHub issue templates for bug reports and feature requests. Include:
 
 - Steps to reproduce (for bugs)
 - Expected vs actual behavior
@@ -82,4 +82,4 @@ Use the [issue templates](.github/ISSUE_TEMPLATE.md) for bug reports and feature
 
 ## Questions?
 
-Open a discussion on GitHub or reach out via the project channels.
+Use the internal Bitslix project channels.

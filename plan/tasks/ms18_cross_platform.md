@@ -1,6 +1,6 @@
 # MS-18 — macOS & Linux Support
 
-**Goal:** Make LocalVoice build and run correctly on macOS and Linux, handling platform-specific differences in audio capture, text insertion, hotkeys, autostart, and windowing.
+**Goal:** Make BLXVoice build and run correctly on macOS and Linux, handling platform-specific differences in audio capture, text insertion, hotkeys, autostart, and windowing.
 **Depends on:** MS-17
 **Status:** `done`
 

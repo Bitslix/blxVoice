@@ -1,6 +1,6 @@
-# User Documentation — LocalVoice
+# User Documentation — BLXVoice
 
-LocalVoice is an offline-first desktop voice dictation app. All audio and transcription stays local — no cloud required.
+BLXVoice is an offline-first desktop voice dictation app. All audio and transcription stays local — no cloud required.
 
 ## Guides
 

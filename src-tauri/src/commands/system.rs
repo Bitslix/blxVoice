@@ -36,7 +36,7 @@ pub fn has_default_model(state: State<AppState>) -> bool {
     }
 }
 
-/// Enables or disables launching LocalVoice on OS login.
+/// Enables or disables launching BLXVoice on OS login.
 #[tauri::command]
 pub fn set_autostart(enabled: bool) -> CmdResult<()> {
     autostart::set_autostart(enabled).map_err(Into::into)

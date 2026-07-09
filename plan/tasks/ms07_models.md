@@ -28,7 +28,7 @@
   - URLs: `https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-{tiny,base,small,medium}.bin`
   - Fallback: GitHub releases at `https://github.com/ggerganov/whisper.cpp/releases`
   - SHA-256 checksums are currently `None` (verification skipped) — fill in once confirmed
-- [x] TASK-112: Validate storage path default is reasonable (e.g. `%APPDATA%\localvoice\models`)
+- [x] TASK-112: Validate storage path default is reasonable (e.g. `%APPDATA%\com.bitslix.blxvoice\models`)
 
 ## QA / Acceptance
 
@@ -54,5 +54,5 @@
 - Activate a model only after checksum verification succeeds — never use a partially downloaded file
 - Download to `.tmp` first; rename on success; delete `.tmp` on failure or cancellation
 - Emit progress events rather than polling — frontend subscribes to `model-download-progress`
-- Models stored at `{app_data_dir}/models/{key}.bin` (Windows: `%APPDATA%\localvoice\models\`)
+- Models stored at `{app_data_dir}/models/{key}.bin` (Windows: `%APPDATA%\com.bitslix.blxvoice\models\`)
 - reqwest 0.12 with `stream` + `json` features; sha2 0.10 for checksum

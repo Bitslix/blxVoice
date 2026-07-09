@@ -41,7 +41,7 @@ src-tauri/
 
 | Feature | Requirement |
 |---|---|
-| Auto-insert (paste) | Accessibility permission granted to LocalVoice.app |
+| Auto-insert (paste) | Accessibility permission granted to BLXVoice.app |
 | Tray icon | Tauri tray-icon feature (bundled) |
 | Autostart | No extra permission; writes launchd plist to user LaunchAgents |
 

@@ -59,7 +59,7 @@ pub fn transcribe(
         .unwrap_or(std::path::Path::new(
             std::env::temp_dir().to_str().unwrap_or("."),
         ))
-        .join(format!("localvoice_out_{}", uuid::Uuid::new_v4()));
+        .join(format!("blxvoice_out_{}", uuid::Uuid::new_v4()));
 
     let start = Instant::now();
     let engine_output = match model_runtime.engine.as_str() {
@@ -227,7 +227,7 @@ fn transcribe_legacy_whisper(
         .unwrap_or(std::path::Path::new(
             std::env::temp_dir().to_str().unwrap_or("."),
         ))
-        .join(format!("localvoice_out_{}", uuid::Uuid::new_v4()));
+        .join(format!("blxvoice_out_{}", uuid::Uuid::new_v4()));
 
     let start = Instant::now();
 
@@ -517,7 +517,7 @@ pub fn transcribe_and_emit(app: AppHandle, wav_path: String, streamed: Option<St
             let _ = app
                 .notification()
                 .builder()
-                .title("LocalVoice — No Model Set")
+                .title("BLXVoice — No Model Set")
                 .body(&msg)
                 .show();
             emit_recording_state(
@@ -553,7 +553,7 @@ pub fn transcribe_and_emit(app: AppHandle, wav_path: String, streamed: Option<St
                     let _ = app
                         .notification()
                         .builder()
-                        .title("LocalVoice — Wrong Model")
+                        .title("BLXVoice — Wrong Model")
                         .body(&msg)
                         .show();
                     emit_recording_state(
@@ -786,7 +786,7 @@ pub fn transcribe_and_emit(app: AppHandle, wav_path: String, streamed: Option<St
                 let _ = app
                     .notification()
                     .builder()
-                    .title("LocalVoice")
+                    .title("BLXVoice")
                     .body(&body)
                     .show();
             }
@@ -832,7 +832,7 @@ pub fn transcribe_and_emit(app: AppHandle, wav_path: String, streamed: Option<St
                 let _ = app
                     .notification()
                     .builder()
-                    .title("LocalVoice — Error")
+                    .title("BLXVoice — Error")
                     .body(&friendly)
                     .show();
             }

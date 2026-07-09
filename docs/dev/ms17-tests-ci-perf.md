@@ -6,7 +6,7 @@
 - **48 frontend component tests** using Vitest + @testing-library/react
 - **GitHub Actions CI pipeline** running on every push/PR to main
 - **Performance optimizations**: lazy page loading, deferred startup tasks, Vite code splitting with `manualChunks`
-- **SQLite log persistence plus file logs**: replaced in-memory log buffer with a `tokio::mpsc` channel writing to `app_logs`; support diagnostics are also written to `{app_data_dir}/localvoice.log`.
+- **SQLite log persistence plus file logs**: replaced in-memory log buffer with a `tokio::mpsc` channel writing to `app_logs`; support diagnostics are also written to `{app_data_dir}/blxvoice.log`.
 
 ## Key Decisions
 

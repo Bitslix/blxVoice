@@ -25,11 +25,11 @@ export function Onboarding({ onDismiss }: Props) {
     <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
       <div className="bg-card border border-border rounded-2xl p-8 w-full max-w-md shadow-2xl">
         <h1 className="text-xl font-semibold text-foreground mb-2">
-          Welcome to LocalVoice
+          Welcome to BLXVoice
         </h1>
         <p className="text-muted-foreground text-sm mb-6">
           To start dictating, you need to download a transcription model first.
-          LocalVoice runs entirely offline — no cloud, no account required.
+          BLXVoice runs entirely offline — no cloud, no account required.
         </p>
 
         <div className="space-y-3 mb-6">

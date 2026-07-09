@@ -2,7 +2,7 @@
 
 ## What It Does
 
-The Models page lets you download, install, and manage local transcription models. LocalVoice supports bundled sidecar engines for Whisper GGML and Parakeet GGUF models, plus optional NVIDIA NeMo support for native `.nemo` checkpoints.
+The Models page lets you download, install, and manage local transcription models. BLXVoice supports bundled sidecar engines for Whisper GGML and Parakeet GGUF models, plus optional NVIDIA NeMo support for native `.nemo` checkpoints.
 
 Base installers include the small sidecar executables only. Model weights, `.nemo` checkpoints, CUDA packages, and Python/NeMo environments are downloaded or configured after install.
 
@@ -39,9 +39,9 @@ GGUF models are offered in Q4, Q5, Q8, and F16 variants where available. Lower q
 
 Models are stored in the app data directory:
 
-- Windows: `%APPDATA%\localvoice\models\`
-- macOS: `~/Library/Application Support/com.localvoice.app/models/`
-- Linux: `~/.local/share/com.localvoice.app/models/`
+- Windows: `%APPDATA%\com.bitslix.blxvoice\models\`
+- macOS: `~/Library/Application Support/com.bitslix.blxvoice/models/`
+- Linux: `~/.local/share/com.bitslix.blxvoice/models/`
 
 ## Related
 

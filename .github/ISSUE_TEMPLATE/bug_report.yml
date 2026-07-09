@@ -1,11 +1,11 @@
 name: Bug Report
-description: Report a bug to help us improve LocalVoice
+description: Report an internal BLXVoice bug
 labels: ["bug"]
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to report a bug!
+        Please include enough detail for the Bitslix team to reproduce the bug.
 
   - type: textarea
     id: description
@@ -47,7 +47,7 @@ body:
   - type: input
     id: version
     attributes:
-      label: LocalVoice Version
+      label: BLXVoice Version
       description: Check Settings → About
       placeholder: e.g., 0.1.0
 

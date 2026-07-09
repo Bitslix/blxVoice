@@ -222,7 +222,7 @@ pub fn show_main_window(app: &AppHandle, source: &str) -> CmdResult<()> {
 fn create_main_window(app: &AppHandle) -> CmdResult<()> {
     log::info!("Creating main window");
     let win = WebviewWindowBuilder::new(app, "main", WebviewUrl::default())
-        .title("LocalVoice")
+        .title("BLXVoice")
         .inner_size(MAIN_DEFAULT_WIDTH, MAIN_DEFAULT_HEIGHT)
         .min_inner_size(f64::from(MAIN_MIN_WIDTH), f64::from(MAIN_MIN_HEIGHT))
         .decorations(true)

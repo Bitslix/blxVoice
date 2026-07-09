@@ -5,7 +5,7 @@
       "ggml-base.dll",
       "whisper.dll",
       "SDL2.dll",
-      "resources/nemo_worker/localvoice_nemo_worker.py",
+      "resources/nemo_worker/blxvoice_nemo_worker.py",
       "resources/nemo_worker/manifest.json",
       "parakeet-runtime"
     ]

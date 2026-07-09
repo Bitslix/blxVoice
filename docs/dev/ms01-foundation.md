@@ -2,7 +2,7 @@
 
 ## What Was Built
 
-The full technical scaffold for LocalVoice:
+The full technical scaffold for BLXVoice:
 
 - Tauri v2 project bootstrapped with React + TypeScript + Vite
 - Two-window setup: a small floating pill (300×64, transparent, always-on-top, no decorations) and a hidden full main window (1100×720)

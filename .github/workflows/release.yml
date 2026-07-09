@@ -24,7 +24,7 @@ name: Release
 #   SIGNPATH_ORGANIZATION_ID – GUID shown in SignPath → Organisation → General
 #
 # Required SignPath configuration when enabled
-#   project-slug             : localvoice
+#   project-slug             : blxvoice
 #   signing-policy-slug      : release-signing
 #   artifact-configuration-slug: windows-installers
 # ─────────────────────────────────────────────────────────────────────────────
@@ -107,7 +107,7 @@ jobs:
             "src-tauri\binaries\parakeet-cli-x86_64-pc-windows-msvc.exe",
             "src-tauri\binaries\parakeet-stream-worker-x86_64-pc-windows-msvc.exe",
             "src-tauri\parakeet-runtime",
-            "src-tauri\resources\nemo_worker\localvoice_nemo_worker.py",
+            "src-tauri\resources\nemo_worker\blxvoice_nemo_worker.py",
             "src-tauri\resources\nemo_worker\manifest.json"
           )) {
             if (-not (Test-Path $path)) {
@@ -188,7 +188,7 @@ jobs:
   #       with:
   #         api-token:                   ${{ secrets.SIGNPATH_API_TOKEN }}
   #         organization-id:             ${{ secrets.SIGNPATH_ORGANIZATION_ID }}
-  #         project-slug:                localvoice
+  #         project-slug:                blxvoice
   #         signing-policy-slug:         release-signing
   #         artifact-configuration-slug: windows-installers
   #         github-artifact-id:          ${{ needs.build-windows.outputs.unsigned-artifact-id }}
@@ -255,7 +255,7 @@ jobs:
 
       - name: Audit bundled sidecars (macOS)
         run: |
-          test -f src-tauri/resources/nemo_worker/localvoice_nemo_worker.py
+          test -f src-tauri/resources/nemo_worker/blxvoice_nemo_worker.py
           test -f src-tauri/resources/nemo_worker/manifest.json
           test -d src-tauri/parakeet-runtime
           ls src-tauri/binaries/whisper-cli-* >/dev/null
@@ -353,7 +353,7 @@ jobs:
 
       - name: Audit bundled sidecars (Linux)
         run: |
-          test -f src-tauri/resources/nemo_worker/localvoice_nemo_worker.py
+          test -f src-tauri/resources/nemo_worker/blxvoice_nemo_worker.py
           test -f src-tauri/resources/nemo_worker/manifest.json
           test -d src-tauri/parakeet-runtime
           ls src-tauri/binaries/whisper-cli-* >/dev/null
@@ -459,7 +459,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name:   ${{ needs.build-windows.outputs.tag }}
-          name:       "LocalVoice ${{ needs.build-windows.outputs.tag }}"
+          name:       "BLXVoice ${{ needs.build-windows.outputs.tag }}"
           draft:      true
           prerelease: false
           files: |
@@ -468,17 +468,17 @@ jobs:
             dist/linux/**
             dist/latest.json
           body: |
-            ## LocalVoice ${{ needs.build-windows.outputs.tag }}
+            ## BLXVoice ${{ needs.build-windows.outputs.tag }}
 
             ### Downloads
 
             | Platform | File |
             |----------|------|
-            | Windows (MSI) | `LocalVoice_*.msi` |
-            | Windows (NSIS) | `LocalVoice_*-setup.exe` |
-            | macOS (Apple Silicon) | `LocalVoice_*.dmg` |
-            | Linux (Debian/Ubuntu) | `local-voice_*.deb` |
-            | Linux (AppImage) | `LocalVoice_*.AppImage` |
+            | Windows (MSI) | `BLXVoice_*.msi` |
+            | Windows (NSIS) | `BLXVoice_*-setup.exe` |
+            | macOS (Apple Silicon) | `BLXVoice_*.dmg` |
+            | Linux (Debian/Ubuntu) | `blxvoice_*.deb` |
+            | Linux (AppImage) | `BLXVoice_*.AppImage` |
 
             Windows, macOS, and Linux builds are currently unsigned — see the [security note](https://github.com/${{ github.repository }}#installation) in the README.
 

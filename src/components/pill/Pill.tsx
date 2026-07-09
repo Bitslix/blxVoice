@@ -178,15 +178,15 @@ function IdleContent({ pushToTalk }: { pushToTalk: boolean }) {
     >
       <img
         data-tauri-drag-region
-        src="/localvoice_appiconbadge_transparent.png.png"
-        alt="LocalVoice"
+        src="/blxvoice_appiconbadge_transparent.png.png"
+        alt="BLXVoice"
         className="w-8 h-8 flex-shrink-0 object-contain"
       />
       <span
         data-tauri-drag-region
         className="text-base font-bold tracking-tight bg-gradient-to-r from-foreground to-foreground/60 bg-clip-text text-transparent"
       >
-        LocalVoice
+        BLXVoice
       </span>
       {pushToTalk && (
         <span
@@ -295,8 +295,8 @@ const StateIcon = memo(function StateIcon({ state }: { state: RecordingState }) 
       return (
         <img
           data-tauri-drag-region
-          src="/localvoice_appiconbadge_transparent.png.png"
-          alt="LocalVoice"
+          src="/blxvoice_appiconbadge_transparent.png.png"
+          alt="BLXVoice"
           className="w-8 h-8 flex-shrink-0 object-contain"
         />
       );
@@ -341,8 +341,8 @@ const StateIcon = memo(function StateIcon({ state }: { state: RecordingState }) 
       return (
         <img
           data-tauri-drag-region
-          src="/localvoice_appiconbadge_transparent.png.png"
-          alt="LocalVoice"
+          src="/blxvoice_appiconbadge_transparent.png.png"
+          alt="BLXVoice"
           className="w-8 h-8 flex-shrink-0"
         />
       );

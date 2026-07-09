@@ -60,7 +60,7 @@ export function Sidebar() {
   return (
     <nav className="w-48 bg-sidebar text-sidebar-foreground flex flex-col py-6 px-3 shrink-0">
       <div className="px-3 mb-4">
-        <img src="/localvoice_logo_transparent.svg" alt="LocalVoice" className="w-full h-auto" />
+        <img src="/blxvoice_logo_transparent.svg" alt="BLXVoice" className="w-full h-auto" />
       </div>
       <div className="flex flex-col gap-1">
         {visibleTopLinks.map(({ to, label, icon: Icon }) => (

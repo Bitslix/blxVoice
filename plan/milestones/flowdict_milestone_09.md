@@ -1,7 +1,7 @@
 # Milestone 9 — Ambiguity v1
 # Context
 
-This document is a standalone delivery brief for one milestone of the FlowDict project: an offline-first desktop dictation application built with Tauri v2, TypeScript, Rust, and whisper.cpp. The product defaults to a small floating pill that shows the current voice state and expands into richer views when needed.
+This document is a standalone delivery brief for one milestone of the BLXVoice project: an offline-first desktop dictation application built with Tauri v2, TypeScript, Rust, and whisper.cpp. The product defaults to a small floating pill that shows the current voice state and expands into richer views when needed.
 
 ## Goal
 

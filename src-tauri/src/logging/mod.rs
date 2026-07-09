@@ -35,7 +35,7 @@ static LOGGING_ENABLED: AtomicBool = AtomicBool::new(true);
 pub fn init(enabled: bool, db: DbConn, app_data_dir: PathBuf) {
     LOGGING_ENABLED.store(enabled, Ordering::Relaxed);
     LOG_DB.set(db.clone()).ok();
-    let log_file_path = app_data_dir.join("localvoice.log");
+    let log_file_path = app_data_dir.join("blxvoice.log");
     LOG_FILE_PATH.set(log_file_path.clone()).ok();
 
     let (tx, mut rx) = mpsc::unbounded_channel::<LogEntry>();

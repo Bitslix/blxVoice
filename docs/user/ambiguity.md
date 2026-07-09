@@ -2,7 +2,7 @@
 
 ## What It Does
 
-LocalVoice tracks words and phrases that whisper transcribes with low confidence (below 60% by default). When the same phrase appears at least 3 times with low confidence, it surfaces in the **Suggestions** tab of the Dictionary page.
+BLXVoice tracks words and phrases that whisper transcribes with low confidence (below 60% by default). When the same phrase appears at least 3 times with low confidence, it surfaces in the **Suggestions** tab of the Dictionary page.
 
 Each suggestion shows:
 - The phrase whisper keeps misreading

@@ -73,11 +73,11 @@ export const TIPS: Tip[] = [
   },
   {
     icon: LogIn,
-    text: 'Enable "Launch at login" so LocalVoice is always ready when you start Windows.',
+    text: 'Enable "Launch at login" so BLXVoice is always ready when you start Windows.',
   },
   {
     icon: LayoutPanelLeft,
-    text: 'Use "Start minimized" to keep LocalVoice in the tray on launch.',
+    text: 'Use "Start minimized" to keep BLXVoice in the tray on launch.',
   },
   {
     icon: Pilcrow,

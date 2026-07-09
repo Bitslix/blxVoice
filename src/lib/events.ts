@@ -9,7 +9,7 @@ import type {
 } from "../types";
 
 /**
- * Centralized registry of all Tauri event channels used in LocalVoice.
+ * Centralized registry of all Tauri event channels used in BLXVoice.
  *
  * This file is the single source of truth for:
  * - Event channel names

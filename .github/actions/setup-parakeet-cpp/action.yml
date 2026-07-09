@@ -59,14 +59,14 @@ runs:
         $build = Join-Path $env:TEMP "parakeet-build"
         $runtime = "src-tauri\parakeet-runtime"
         $workerSrc = "src-tauri\sidecars\parakeet-stream-worker"
-        $workerDst = Join-Path $src "examples\localvoice-stream-worker"
+        $workerDst = Join-Path $src "examples\blxvoice-stream-worker"
 
         New-Item -ItemType Directory -Force -Path $runtime | Out-Null
         Remove-Item $src -Recurse -Force -ErrorAction SilentlyContinue
         Remove-Item $build -Recurse -Force -ErrorAction SilentlyContinue
         git clone --depth 1 --recurse-submodules --shallow-submodules --branch $tag https://github.com/mudler/parakeet.cpp.git $src
         Copy-Item $workerSrc $workerDst -Recurse
-        Add-Content -Path (Join-Path $src "CMakeLists.txt") -Value "add_subdirectory(examples/localvoice-stream-worker)"
+        Add-Content -Path (Join-Path $src "CMakeLists.txt") -Value "add_subdirectory(examples/blxvoice-stream-worker)"
 
         cmake -S $src -B $build -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=OFF -DGGML_NATIVE=OFF -DGGML_AVX2=OFF -DGGML_FMA=OFF -DGGML_F16C=OFF -DGGML_BMI2=OFF -DPARAKEET_BUILD_CLI=OFF -DPARAKEET_BUILD_SERVER=OFF
         cmake --build $build --config Release --target parakeet-stream-worker --parallel
@@ -135,8 +135,8 @@ runs:
         mkdir -p "$RUNTIME"
         rm -rf "$SRC" "$BUILD"
         git clone --depth 1 --recurse-submodules --shallow-submodules --branch "$TAG" https://github.com/mudler/parakeet.cpp.git "$SRC"
-        cp -R src-tauri/sidecars/parakeet-stream-worker "$SRC/examples/localvoice-stream-worker"
-        printf '\nadd_subdirectory(examples/localvoice-stream-worker)\n' >> "$SRC/CMakeLists.txt"
+        cp -R src-tauri/sidecars/parakeet-stream-worker "$SRC/examples/blxvoice-stream-worker"
+        printf '\nadd_subdirectory(examples/blxvoice-stream-worker)\n' >> "$SRC/CMakeLists.txt"
         cmake -S "$SRC" -B "$BUILD" -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=OFF -DGGML_NATIVE=OFF -DGGML_AVX2=OFF -DGGML_FMA=OFF -DGGML_F16C=OFF -DGGML_BMI2=OFF -DPARAKEET_BUILD_CLI=OFF -DPARAKEET_BUILD_SERVER=OFF
         cmake --build "$BUILD" --config Release --target parakeet-stream-worker --parallel
         WORKER="$(find "$BUILD" -type f -name parakeet-stream-worker | head -n 1)"
@@ -203,8 +203,8 @@ runs:
         mkdir -p "$RUNTIME"
         rm -rf "$SRC" "$BUILD"
         git clone --depth 1 --recurse-submodules --shallow-submodules --branch "$TAG" https://github.com/mudler/parakeet.cpp.git "$SRC"
-        cp -R src-tauri/sidecars/parakeet-stream-worker "$SRC/examples/localvoice-stream-worker"
-        printf '\nadd_subdirectory(examples/localvoice-stream-worker)\n' >> "$SRC/CMakeLists.txt"
+        cp -R src-tauri/sidecars/parakeet-stream-worker "$SRC/examples/blxvoice-stream-worker"
+        printf '\nadd_subdirectory(examples/blxvoice-stream-worker)\n' >> "$SRC/CMakeLists.txt"
         cmake -S "$SRC" -B "$BUILD" -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=OFF -DGGML_NATIVE=OFF -DGGML_AVX2=OFF -DGGML_FMA=OFF -DGGML_F16C=OFF -DGGML_BMI2=OFF -DPARAKEET_BUILD_CLI=OFF -DPARAKEET_BUILD_SERVER=OFF
         cmake --build "$BUILD" --config Release --target parakeet-stream-worker --parallel
         WORKER="$(find "$BUILD" -type f -name parakeet-stream-worker | head -n 1)"

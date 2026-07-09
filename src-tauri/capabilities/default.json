@@ -1,7 +1,7 @@
 {
   "$schema": "../gen/schemas/desktop-schema.json",
   "identifier": "default",
-  "description": "Default capabilities for all LocalVoice windows",
+  "description": "Default capabilities for all BLXVoice windows",
   "windows": ["main", "pill"],
   "permissions": [
     "core:default",

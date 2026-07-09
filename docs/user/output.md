@@ -2,7 +2,7 @@
 
 ## What It Does
 
-After every successful transcription, LocalVoice automatically delivers the text to you. You choose how in **Settings → Output**:
+After every successful transcription, BLXVoice automatically delivers the text to you. You choose how in **Settings → Output**:
 
 | Mode | What happens |
 |------|-------------|

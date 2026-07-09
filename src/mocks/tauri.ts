@@ -248,7 +248,7 @@ export const mockCorrectionStats: CorrectionStat[] = [
   { sourcePhrase: "das", targetPhrase: "dass", usageCount: 18 },
   { sourcePhrase: "ne", targetPhrase: "ne", usageCount: 15 },
   { sourcePhrase: "Audio Datei", targetPhrase: "Audiodatei", usageCount: 12 },
-  { sourcePhrase: "Local Voice", targetPhrase: "LocalVoice", usageCount: 10 },
+  { sourcePhrase: "BLXVoice", targetPhrase: "BLXVoice", usageCount: 10 },
 ];
 
 export const mockWpmTrend: WpmPoint[] = [
@@ -273,7 +273,7 @@ export const mockModels: ModelInfo[] = [
     isDefaultForDe: false,
     isDefaultForEn: true,
     defaultForLanguages: ["en"],
-    localPath: "~/.localvoice/models/ggml-base.bin",
+    localPath: "~/.blxvoice/models/ggml-base.bin",
     installedAt: "2026-01-15T10:00:00Z",
     description: "Fast and lightweight, English only",
     speed: "fastest",
@@ -292,7 +292,7 @@ export const mockModels: ModelInfo[] = [
     isDefaultForDe: true,
     isDefaultForEn: false,
     defaultForLanguages: ["de", "fr", "es"],
-    localPath: "~/.localvoice/models/ggml-small.bin",
+    localPath: "~/.blxvoice/models/ggml-small.bin",
     installedAt: "2026-02-01T10:00:00Z",
     description: "Good balance of speed and accuracy",
     speed: "fast",
@@ -311,7 +311,7 @@ export const mockModels: ModelInfo[] = [
     isDefaultForDe: false,
     isDefaultForEn: false,
     defaultForLanguages: [],
-    localPath: "~/.localvoice/models/ggml-medium.bin",
+    localPath: "~/.blxvoice/models/ggml-medium.bin",
     installedAt: "2026-02-15T10:00:00Z",
     description: "Higher accuracy, slower processing",
     speed: "balanced",
@@ -342,8 +342,8 @@ export const mockModels: ModelInfo[] = [
 export const mockDictionaryEntries: DictionaryEntry[] = [
   {
     id: "dict-1",
-    phrase: "LocalVoice",
-    normalizedPhrase: "localvoice",
+    phrase: "BLXVoice",
+    normalizedPhrase: "blxvoice",
     language: "en",
     entryType: "product",
     notes: "Product name",

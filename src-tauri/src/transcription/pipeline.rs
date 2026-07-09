@@ -241,20 +241,20 @@ mod tests {
     fn pipeline_removes_language_tags_before_dictionary_rules() {
         let db = test_db();
         let rule =
-            dictionary_repo::create_rule(&db, "local voice", "LocalVoice", None, "manual", true)
+            dictionary_repo::create_rule(&db, "blx voice", "BLXVoice", None, "manual", true)
                 .unwrap();
         let active_rules = vec![rule];
         let settings = default_settings();
         let (cleaned, _, fired_ids, _) = run(
-            "das ist local <de-DE> voice",
-            vec![seg("das ist local <de-DE> voice")],
+            "das ist blx <de-DE> voice",
+            vec![seg("das ist blx <de-DE> voice")],
             &settings,
             &active_rules,
             "de",
             &[],
         );
 
-        assert_eq!(cleaned, "Das ist LocalVoice.");
+        assert_eq!(cleaned, "Das ist BLXVoice.");
         assert_eq!(fired_ids.len(), 1);
     }
 

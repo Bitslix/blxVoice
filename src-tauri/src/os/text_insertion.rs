@@ -130,7 +130,7 @@ fn send_paste_key() {
         ])
         .status();
     if let Err(e) = result {
-        log::warn!("osascript Cmd+V failed: {e}. Grant Accessibility permission to LocalVoice in System Preferences → Privacy & Security → Accessibility.");
+        log::warn!("osascript Cmd+V failed: {e}. Grant Accessibility permission to BLXVoice in System Preferences → Privacy & Security → Accessibility.");
     }
 }
 

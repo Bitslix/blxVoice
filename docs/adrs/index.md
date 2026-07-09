@@ -1,6 +1,6 @@
 # Architecture Decision Records (ADRs)
 
-This directory contains ADRs documenting key architectural decisions for LocalVoice.
+This directory contains ADRs documenting key architectural decisions for BLXVoice.
 
 ## What is an ADR?
 

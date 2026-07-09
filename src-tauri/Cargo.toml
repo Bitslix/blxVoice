@@ -1,12 +1,12 @@
 [package]
-name = "localvoice"
+name = "blxvoice"
 version = "1.0.1"
-description = "LocalVoice â€” offline-first desktop voice dictation"
+description = "BLXVoice - offline-first desktop voice dictation"
 authors = []
 edition = "2021"
 
 [lib]
-name = "localvoice_lib"
+name = "blxvoice_lib"
 crate-type = ["staticlib", "cdylib", "rlib"]
 
 [build-dependencies]

@@ -2,7 +2,7 @@
 
 ## What It Does
 
-After transcription, LocalVoice can either copy text to the clipboard or automatically paste it into the focused application. The insert flow uses clipboard + Ctrl+V simulation with configurable timing and automatic fallback.
+After transcription, BLXVoice can either copy text to the clipboard or automatically paste it into the focused application. The insert flow uses clipboard + Ctrl+V simulation with configurable timing and automatic fallback.
 
 ## How to Use It
 
@@ -26,7 +26,7 @@ Texts longer than 4 000 characters are automatically split into chunks, each pas
 
 ### Fallback Behavior
 
-If auto-insert fails (e.g. the target app blocks paste), LocalVoice:
+If auto-insert fails (e.g. the target app blocks paste), BLXVoice:
 
 1. Keeps the text on the clipboard
 2. Shows "Text copied — paste manually" in the pill
@@ -34,7 +34,7 @@ If auto-insert fails (e.g. the target app blocks paste), LocalVoice:
 
 ### Target App Detection
 
-When using auto-insert, LocalVoice records which application was in focus (e.g. "Notepad", "Visual Studio Code"). This information is stored with the session in history.
+When using auto-insert, BLXVoice records which application was in focus (e.g. "Notepad", "Visual Studio Code"). This information is stored with the session in history.
 
 ## Related
 

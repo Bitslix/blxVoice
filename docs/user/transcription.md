@@ -2,13 +2,13 @@
 
 ## What It Does
 
-After you stop a recording, LocalVoice transcribes the audio offline. The selected model determines which local engine runs:
+After you stop a recording, BLXVoice transcribes the audio offline. The selected model determines which local engine runs:
 
 - **Whisper.cpp** for GGML `.bin` models.
 - **Parakeet.cpp** for GGUF `.gguf` models.
 - **NVIDIA NeMo** for optional `.nemo` models.
 
-No audio is sent to a cloud service. When streaming is enabled and the selected model/runtime supports it, LocalVoice can receive partial text before you stop recording. The final transcript still goes through the same cleanup, dictionary rules, history persistence, and clipboard or auto-insert output flow.
+No audio is sent to a cloud service. When streaming is enabled and the selected model/runtime supports it, BLXVoice can receive partial text before you stop recording. The final transcript still goes through the same cleanup, dictionary rules, history persistence, and clipboard or auto-insert output flow.
 
 In the default **Recording overlay** pill mode, the pill shows only the waveform while recording and hides after stop. In **Classic pill** mode, streaming-capable models can also show live transcript preview text in the pill.
 
@@ -21,7 +21,7 @@ The transcription flow transitions through:
 
 ## First-Time Setup
 
-Public installers include the required Whisper and Parakeet sidecar executables. Model weights are not bundled.
+Installers include the required Whisper and Parakeet sidecar executables. Model weights are not bundled.
 
 1. Open **Models**.
 2. Download a Whisper GGML or Parakeet GGUF model.
@@ -36,21 +36,21 @@ Streaming is controlled in **Settings -> Transcription**:
 
 1. Enable **Streaming transcription**.
 2. Choose a chunk size. `320 ms` is the default balance between latency and overhead.
-3. Keep **Streaming output** on **No live insert** unless you explicitly want LocalVoice to write streaming deltas into the focused application while you speak.
+3. Keep **Streaming output** on **No live insert** unless you explicitly want BLXVoice to write streaming deltas into the focused application while you speak.
 
-No-live-insert streaming never writes partial text into another app. Live insert applies streaming-safe cleanup to each worker delta before pasting it, including language tag stripping, configured filler-word removal, and dictionary correction rules. Whole-transcript normalization still runs after stop, so punctuation and capitalization remain finalized in history and clipboard output. If the worker emits no text before finalization, LocalVoice keeps the normal final output on stop. If the selected model is Whisper, `.nemo`, or another non-streaming model, LocalVoice uses the normal stop-to-transcribe flow.
+No-live-insert streaming never writes partial text into another app. Live insert applies streaming-safe cleanup to each worker delta before pasting it, including language tag stripping, configured filler-word removal, and dictionary correction rules. Whole-transcript normalization still runs after stop, so punctuation and capitalization remain finalized in history and clipboard output. If the worker emits no text before finalization, BLXVoice keeps the normal final output on stop. If the selected model is Whisper, `.nemo`, or another non-streaming model, BLXVoice uses the normal stop-to-transcribe flow.
 
-Parakeet GGUF streaming uses the bundled `parakeet-stream-worker` sidecar. If the worker is missing or the model cannot start a streaming session, LocalVoice falls back to the normal WAV transcription path after recording stops.
+Parakeet GGUF streaming uses the bundled `parakeet-stream-worker` sidecar. If the worker is missing or the model cannot start a streaming session, BLXVoice falls back to the normal WAV transcription path after recording stops.
 
 ## Optional NeMo Runtime
 
-`.nemo` models require a local Python environment with NVIDIA NeMo installed. LocalVoice does not bundle Python, CUDA, or NeMo in public installers.
+`.nemo` models require a local Python environment with NVIDIA NeMo installed. BLXVoice does not bundle Python, CUDA, or NeMo in installers.
 
 1. Configure `transcription.nemo.python_path` or use a Python available on `PATH`.
 2. Run the NeMo runtime health check from the app before selecting a `.nemo` model.
 3. Select a `.nemo` model only after the runtime is reported as available.
 
-If the NeMo health check fails, LocalVoice keeps working with Whisper and Parakeet GGUF choices.
+If the NeMo health check fails, BLXVoice keeps working with Whisper and Parakeet GGUF choices.
 
 ## Changing the Language
 

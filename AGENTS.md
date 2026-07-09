@@ -18,13 +18,13 @@ Project-specific rules live in `.Codex/rules/`. They are **mandatory** and take 
 
 ## Project Overview
 
-**LocalVoice** (working title: FlowDict) is an offline-first desktop voice dictation app built with **Tauri v2** (Rust + TypeScript/React). It records audio via global hotkey, transcribes locally using a whisper.cpp sidecar process, and outputs text via clipboard or direct insertion. The app is primarily a small floating "pill" UI — privacy-first, no cloud connectivity.
+**BLXVoice** is a private Bitslix desktop voice dictation product built with **Tauri v2** (Rust + TypeScript/React). It records audio via global hotkey, transcribes locally using whisper.cpp, parakeet.cpp, or optional NeMo sidecars, and outputs text via clipboard or direct insertion. The app is primarily a small floating "pill" UI — privacy-first, no cloud connectivity.
 
-Full specification: `plan/flowdict_prd.md`. Milestone breakdown: `plan/milestones/flowdict_milestone_01.md` through `_10.md`.
+Historical specification: `plan/flowdict_prd.md`. Historical milestone briefs: `plan/milestones/flowdict_milestone_01.md` through `_10.md`. These files use legacy filenames from before the BLXVoice takeover.
 
 ## Status
 
-Pre-implementation. The planning docs define the entire architecture, database schema, Tauri command API surface, and 10-milestone roadmap. **No source code exists yet.**
+Implemented product. The repository now contains the Tauri v2 shell, React frontend, Rust backend, SQLite persistence, local transcription sidecars, release workflows, and user/developer documentation.
 
 ## Task Tracking
 

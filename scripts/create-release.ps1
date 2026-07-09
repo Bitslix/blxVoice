@@ -1,7 +1,7 @@
 #!/usr/bin/env pwsh
 <#
 .SYNOPSIS
-    Build LocalVoice locally and publish a GitHub release.
+    Build BLXVoice locally and publish a GitHub release.
 
 .PARAMETER Bump
     Bump the version before releasing: Major, Minor, or Patch.
@@ -54,7 +54,7 @@ param(
     [switch]$Prerelease,
     [switch]$LocalBuild,
     [switch]$UpdaterArtifacts,
-    [string]$SigningKeyPath = (Join-Path $env:USERPROFILE '.tauri\localvoice-updater.key'),
+    [string]$SigningKeyPath = (Join-Path $env:USERPROFILE '.tauri\blxvoice-updater.key'),
     [switch]$DryRun
 )
 
@@ -166,7 +166,7 @@ function Get-TauriBuildArgs {
     $args.Add('build')
 
     if (-not $CreateUpdaterArtifacts) {
-        $configPath = Join-Path ([System.IO.Path]::GetTempPath()) "localvoice-tauri-local-build-$PID.json"
+        $configPath = Join-Path ([System.IO.Path]::GetTempPath()) "blxvoice-tauri-local-build-$PID.json"
         if (-not $DryRun) {
             $enc = New-Object System.Text.UTF8Encoding $false
             [System.IO.File]::WriteAllText($configPath, '{"bundle":{"createUpdaterArtifacts":false}}', $enc)
@@ -313,16 +313,16 @@ foreach ($f in $artifacts) {
 if (-not $LocalBuild) {
     Write-Step "Publishing GitHub release $tag"
 
-    $notes = "## LocalVoice $tag`n`n" +
+    $notes = "## BLXVoice $tag`n`n" +
              "### Installation`n" +
              "Download the .msi (Windows Installer) or the -setup.exe (NSIS installer) below.`n`n" +
              "Whisper and Parakeet sidecars are bundled. Transcription models are not bundled - download them from the Models page inside the app. .nemo models require an optional local NVIDIA NeMo Python runtime.`n`n" +
              "### Changes`n" +
-             "https://github.com/iptoux/localvoice/commits/$tag"
+             "https://github.com/Bitslix/blxVoice/commits/$tag"
 
     $ghArgs = [System.Collections.Generic.List[string]]@(
         'release', 'create', $tag,
-        '--title', "LocalVoice $tag",
+        '--title', "BLXVoice $tag",
         '--notes', $notes
     )
 
@@ -346,6 +346,6 @@ if ($DryRun) {
     Write-Host "  Artifacts: $bundleDir" -ForegroundColor Cyan
 } else {
     Write-Host "  Release $tag published!" -ForegroundColor Green
-    Write-Host "  https://github.com/iptoux/localvoice/releases/tag/$tag" -ForegroundColor Cyan
+    Write-Host "  https://github.com/Bitslix/blxVoice/releases/tag/$tag" -ForegroundColor Cyan
 }
 Write-Host "======================================" -ForegroundColor Magenta

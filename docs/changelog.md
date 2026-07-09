@@ -2,7 +2,7 @@
 
 ## Unreleased
 
-- Open the main window once after a successful updater restart so users can see LocalVoice is running after installation.
+- Open the main window once after a successful updater restart so users can see BLXVoice is running after installation.
 - Kept the update banner sticky in the main content area so the Update Now action remains visible while scrolling.
 - Fixed streaming live insert so pasted worker deltas apply configured filler-word removal and dictionary corrections before reaching the target app.
 - Added Windows local Parakeet sidecar preparation for `pnpm tauri build`, bootstrap, and `create-release.ps1 -LocalBuild` so local installers include the streaming worker and runtime DLLs.
@@ -31,13 +31,13 @@
 - Bumped the app version to final 1.0.0.
 - Added a square 256x256 Linux bundle icon and removed non-square PNGs from the Tauri icon list to fix AppImage packaging.
 - Updated frontend dependencies to resolve npm/pnpm security advisories while keeping the Vite toolchain on the latest compatible 7.x line.
-- Added a plain-text `localvoice.log` file in the app data directory so crash reports can include logs even when the in-app viewer is unavailable.
+- Added a plain-text `blxvoice.log` file in the app data directory so crash reports can include logs even when the in-app viewer is unavailable.
 - Moved audio-level UI event emission out of the real-time capture callback and uses the default Windows input stream configuration to reduce driver-level recording crashes.
 
 ## MS-18 — macOS & Linux Support (2026-03-23)
 
-- macOS autostart via launchd plist (`~/Library/LaunchAgents/com.localvoice.app.plist`)
-- Linux autostart via XDG `.desktop` file (`~/.config/autostart/localvoice.desktop`)
+- macOS autostart via launchd plist (`~/Library/LaunchAgents/com.bitslix.blxvoice.plist`)
+- Linux autostart via XDG `.desktop` file (`~/.config/autostart/blxvoice.desktop`)
 - macOS auto-insert: simulates `Cmd+V` via `osascript` (requires Accessibility permission)
 - Linux auto-insert: detects X11 vs. Wayland at runtime; uses `xdotool` or `wtype`
 - `windows-sys` dependency moved to Windows-only in `Cargo.toml`
@@ -103,7 +103,7 @@
 ## MS-10 — Polish (2026-03-17)
 
 - **Onboarding**: first-time users with no model installed see a welcome overlay guiding them to the Models page
-- **Autostart**: Settings → System toggle registers/removes LocalVoice from Windows startup (registry)
+- **Autostart**: Settings → System toggle registers/removes BLXVoice from Windows startup (registry)
 - **Window persistence**: pill position and main window size/position are saved automatically and restored on next launch
 - **Native notifications**: errors during transcription emit an OS toast notification with a plain-language message (opt-out); success notifications are opt-in (Settings → Notifications)
 - **Friendly error messages**: raw Rust errors are mapped to user-readable text before display in the pill and notifications

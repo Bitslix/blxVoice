@@ -52,7 +52,7 @@ Events emitted:
 2. Rename the Windows CLI binary to `whisper-cli-x86_64-pc-windows-msvc.exe`
 3. Place it in `src-tauri/binaries/`
 4. Download a model (e.g. `ggml-base.bin`) from HuggingFace or the whisper.cpp releases
-5. Place the model in `{AppData}/com.localvoice.app/models/` or set `WHISPER_MODEL_PATH`
+5. Place the model in `{AppData}/com.bitslix.blxvoice/models/` or set `WHISPER_MODEL_PATH`
 
 Development shortcuts:
 - Set `WHISPER_BIN_PATH=/path/to/whisper-cli.exe` to override binary resolution

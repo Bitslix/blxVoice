@@ -2,7 +2,7 @@
 
 **Status:** Structure prepared, library not yet installed
 
-This directory contains translation files and i18n configuration for LocalVoice.
+This directory contains translation files and i18n configuration for BLXVoice.
 
 ## Files
 

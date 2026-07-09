@@ -1,14 +1,14 @@
 # Platform Support
 
-LocalVoice runs on Windows, macOS, and Linux. Core features (record, transcribe, copy/insert) work on all platforms. Some platform-specific features require extra setup.
+BLXVoice runs on Windows, macOS, and Linux. Core features (record, transcribe, copy/insert) work on all platforms. Some platform-specific features require extra setup.
 
 ## What It Does
 
-LocalVoice adapts its OS integration to each platform:
+BLXVoice adapts its OS integration to each platform:
 
 - **Autostart**: registers itself with the OS login mechanism on each platform (registry on Windows, launchd on macOS, XDG autostart on Linux)
 - **Auto-insert**: pastes transcribed text into the focused application using the platform's native paste mechanism
-- **Auto-update**: checks the public GitHub release channel and installs updates after explicit user confirmation
+- **Auto-update**: checks the private Bitslix GitHub release channel and installs updates after explicit user confirmation
 - **Tray icon**: uses the system tray on all platforms (requires `libappindicator` on Linux)
 - **Global shortcut**: registers a system-wide hotkey for recording
 
@@ -32,8 +32,8 @@ No extra setup required. The installer includes all required libraries.
 
 ### First Launch
 
-macOS blocks unsigned apps by default. To open LocalVoice:
-1. Right-click `LocalVoice.app` → **Open**
+macOS blocks unsigned apps by default. To open BLXVoice:
+1. Right-click `BLXVoice.app` → **Open**
 2. Click **Open** in the security dialog
 
 ### Auto-Insert (Paste)
@@ -42,7 +42,7 @@ The auto-insert feature requires Accessibility permission:
 
 1. Open **System Settings → Privacy & Security → Accessibility**
 2. Click the lock icon and authenticate
-3. Toggle **LocalVoice** to enabled
+3. Toggle **BLXVoice** to enabled
 
 Without this permission, transcribed text is still copied to your clipboard — you can paste it manually with `⌘V`.
 
@@ -50,7 +50,7 @@ Without this permission, transcribed text is still copied to your clipboard — 
 
 The **Launch at login** toggle in Settings writes a launchd plist to:
 ```
-~/Library/LaunchAgents/com.localvoice.app.plist
+~/Library/LaunchAgents/com.bitslix.blxvoice.plist
 ```
 
 ### System Requirements
@@ -82,7 +82,7 @@ sudo dnf install -y xdotool
 
 ### Auto-Insert (Paste)
 
-LocalVoice detects your display server automatically:
+BLXVoice detects your display server automatically:
 - **X11**: uses `xdotool key ctrl+v`
 - **Wayland**: uses `wtype -k ctrl+v`
 
@@ -96,7 +96,7 @@ The tray icon requires `libayatana-appindicator3` (Debian/Ubuntu) or `libappindi
 
 The **Launch at login** toggle writes an XDG autostart file to:
 ```
-~/.config/autostart/localvoice.desktop
+~/.config/autostart/blxvoice.desktop
 ```
 This works on GNOME, KDE, XFCE, and other XDG-compliant desktop environments.
 

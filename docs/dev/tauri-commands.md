@@ -848,7 +848,7 @@ invoke('has_default_model'): Promise<boolean>
 
 ### `set_autostart`
 
-Enables or disables launching LocalVoice on OS login.
+Enables or disables launching BLXVoice on OS login.
 
 ```typescript
 invoke('set_autostart', { enabled: boolean }): Promise<void>
@@ -1079,7 +1079,7 @@ Opens a native save dialog and writes all log entries as JSON.
 
 ```typescript
 invoke('export_logs'): Promise<void>
-// Filename: localvoice-logs.json
+// Filename: blxvoice-logs.json
 ```
 
 **Error codes:**

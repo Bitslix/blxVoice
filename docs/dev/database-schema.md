@@ -1,6 +1,6 @@
 # SQLite Database Schema
 
-LocalVoice uses SQLite as its single-file relational database. All persistence lives in one `localvoice.db` file located in the platform app-data directory.
+BLXVoice uses SQLite as its single-file relational database. All persistence lives in one `blxvoice.db` file located in the platform app-data directory.
 
 ## Versioned Migrations
 
@@ -480,7 +480,7 @@ After writing a migration, test it:
 pnpm tauri dev
 
 # Or verify via the Rust test suite
-cargo test --package localvoice -- migrations
+cargo test --package blxvoice -- migrations
 ```
 
 Check the `schema_migrations` table after startup:

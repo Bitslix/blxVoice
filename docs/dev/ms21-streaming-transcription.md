@@ -2,7 +2,7 @@
 
 ## What Was Built
 
-LocalVoice now has a streaming transcription path for streaming-capable models. Recording still captures 16 kHz mono PCM into `ActiveRecording.samples`; a background `StreamingSessionManager` reads newly captured samples at the configured interval, feeds a warm worker process, emits `transcription-stream-update` events, and finalizes the stream on stop.
+BLXVoice now has a streaming transcription path for streaming-capable models. Recording still captures 16 kHz mono PCM into `ActiveRecording.samples`; a background `StreamingSessionManager` reads newly captured samples at the configured interval, feeds a warm worker process, emits `transcription-stream-update` events, and finalizes the stream on stop.
 
 Whisper and non-streaming models keep the existing stop-to-transcribe behavior. If a streaming worker is unavailable, fails, or returns empty text, stop falls back to the normal WAV transcription pipeline.
 
@@ -10,7 +10,7 @@ Whisper and non-streaming models keep the existing stop-to-transcribe behavior. 
 
 - **No live insert first:** `transcription.streaming.output_mode=preview` is the default. It keeps target apps untouched and never writes partial text into another app. Classic pill mode can render the preview; the default recording overlay intentionally shows only the waveform.
 - **Live insert is opt-in:** `live_insert` writes worker-emitted streaming deltas only after streaming-safe cleanup: language tag stripping, configured filler-word removal, and dictionary correction rules. The final cleaned transcript is still persisted and copied according to the normal output path to avoid duplicate full-text insertion.
-- **Worker-owned Parakeet streaming:** `parakeet-cli --stream` streams from a WAV file, so LocalVoice uses a dedicated `parakeet-stream-worker` sidecar around the pinned `mudler/parakeet.cpp` C streaming API.
+- **Worker-owned Parakeet streaming:** `parakeet-cli --stream` streams from a WAV file, so BLXVoice uses a dedicated `parakeet-stream-worker` sidecar around the pinned `mudler/parakeet.cpp` C streaming API.
 - **Release-safe packaging:** the base installer bundles small sidecars only: `whisper-cli`, `parakeet-cli`, and `parakeet-stream-worker`. Model weights, Python, NeMo, CUDA, and Vulkan packs stay outside the installer.
 
 ## Architecture Notes

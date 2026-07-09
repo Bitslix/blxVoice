@@ -2,7 +2,7 @@
 
 ## What It Does
 
-LocalVoice listens to your microphone and captures your voice via a global keyboard shortcut.
+BLXVoice listens to your microphone and captures your voice via a global keyboard shortcut.
 While recording, the pill shows a pulsing red indicator and an elapsed timer.
 All audio stays on your device — nothing is sent to the internet.
 

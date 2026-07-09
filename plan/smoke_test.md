@@ -1,4 +1,4 @@
-# LocalVoice v0.1 — Smoke Test Checklist
+# BLXVoice v0.1 — Smoke Test Checklist
 
 Execute these steps in order on a clean install (no DB, no models). Check each box when verified.
 

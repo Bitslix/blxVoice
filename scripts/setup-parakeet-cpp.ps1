@@ -99,7 +99,7 @@ function Download-ParakeetCli {
     New-Item -ItemType Directory -Force -Path $BinariesDir | Out-Null
 
     $zip = Join-Path $env:TEMP $ParakeetAsset
-    $extractDir = Join-Path $env:TEMP "localvoice-parakeet-cli"
+    $extractDir = Join-Path $env:TEMP "blxvoice-parakeet-cli"
 
     Remove-Item $zip -Force -ErrorAction SilentlyContinue
     Remove-Item $extractDir -Recurse -Force -ErrorAction SilentlyContinue
@@ -144,9 +144,9 @@ function Build-ParakeetWorker {
     New-Item -ItemType Directory -Force -Path $BinariesDir | Out-Null
     New-Item -ItemType Directory -Force -Path $RuntimeDir | Out-Null
 
-    $src = Join-Path $env:TEMP "localvoice-parakeet-src-$PID"
-    $build = Join-Path $env:TEMP "localvoice-parakeet-build-$PID"
-    $workerDst = Join-Path $src "examples\localvoice-stream-worker"
+    $src = Join-Path $env:TEMP "blxvoice-parakeet-src-$PID"
+    $build = Join-Path $env:TEMP "blxvoice-parakeet-build-$PID"
+    $workerDst = Join-Path $src "examples\blxvoice-stream-worker"
 
     Remove-Item $src -Recurse -Force -ErrorAction SilentlyContinue
     Remove-Item $build -Recurse -Force -ErrorAction SilentlyContinue
@@ -163,7 +163,7 @@ function Build-ParakeetWorker {
         )
 
         Copy-Item $WorkerSourceDir $workerDst -Recurse
-        Add-Content -Path (Join-Path $src "CMakeLists.txt") -Value "add_subdirectory(examples/localvoice-stream-worker)"
+        Add-Content -Path (Join-Path $src "CMakeLists.txt") -Value "add_subdirectory(examples/blxvoice-stream-worker)"
 
         Invoke-External cmake @(
             "-S", $src,

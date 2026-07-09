@@ -1,7 +1,7 @@
 {
-  "name": "localvoice-nemo-worker",
+  "name": "blxvoice-nemo-worker",
   "protocolVersion": 1,
-  "entrypoint": "localvoice_nemo_worker.py",
+  "entrypoint": "blxvoice_nemo_worker.py",
   "runtime": "optional-nemo",
   "artifactFormats": ["nemo"],
   "messages": [

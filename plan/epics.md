@@ -1,4 +1,4 @@
-# Epics — FlowDict / LocalVoice
+# Epics — BLXVoice
 
 > Master backlog index. Detailed tasks are in `plan/tasks/ms*.md`.
 > Status values: `todo` · `in-progress` · `done`
@@ -329,7 +329,7 @@ v0.1 (MS-01–10) ── all done
 
 ## MS-18 — macOS & Linux Support
 
-**Goal:** Make LocalVoice build and run correctly on macOS and Linux with platform-specific implementations.
+**Goal:** Make BLXVoice build and run correctly on macOS and Linux with platform-specific implementations.
 
 **Acceptance Criteria:**
 - App builds and launches on macOS (Apple Silicon + Intel) and Linux (Ubuntu 22.04+)

@@ -74,7 +74,7 @@ pub fn export_sessions(
         .add_filter("Text file", &["txt"])
         .add_filter("JSON", &["json"])
         .add_filter("CSV", &["csv"])
-        .set_file_name(&format!("localvoice-export.{ext}"))
+        .set_file_name(&format!("blxvoice-export.{ext}"))
         .save_file()
         .ok_or_else(|| AppError("Export cancelled".to_string()))?;
 

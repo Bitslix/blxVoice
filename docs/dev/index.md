@@ -1,4 +1,4 @@
-# Developer Documentation — LocalVoice
+# Developer Documentation — BLXVoice
 
 Technical reference for contributors and maintainers.
 

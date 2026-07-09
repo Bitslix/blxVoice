@@ -31,7 +31,7 @@
 
 ### Runtime Workers
 
-- [x] TASK-321: Add a LocalVoice Parakeet streaming worker sidecar around the pinned `mudler/parakeet.cpp` `v0.3.2` streaming C API.
+- [x] TASK-321: Add a BLXVoice Parakeet streaming worker sidecar around the pinned `mudler/parakeet.cpp` `v0.3.2` streaming C API.
 - [x] TASK-322: Define and implement NDJSON worker protocol messages: `health`, `load`, `audio`, `partial`, `final`, `finalize`, `cancel`, and `error`.
 - [x] TASK-323: Extend the optional NeMo worker to the same streaming protocol where the installed NeMo runtime supports it.
 - [x] TASK-324: Update CI/release setup and artifact audits to include the Parakeet streaming worker sidecar.
@@ -72,4 +72,4 @@
 - Do not implement fake streaming by repeatedly running full file transcription on chunks.
 - Keep heavy transcription work out of the CPAL capture callback; chunking must run in a background task.
 - Base installers may bundle small sidecars/workers, but must not bundle model weights, Python, NeMo, CUDA, or Vulkan runtime packs.
-- If upstream Parakeet CLI streaming is not suitable for stdin PCM, use a LocalVoice-owned worker around the Parakeet C API.
+- If upstream Parakeet CLI streaming is not suitable for stdin PCM, use a BLXVoice-owned worker around the Parakeet C API.

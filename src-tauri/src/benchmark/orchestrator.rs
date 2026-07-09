@@ -82,7 +82,7 @@ pub fn run_benchmark(app: &AppHandle, params: &BenchmarkParams) -> CmdResult<Ben
     let samples = generate_synthetic_wav(sample_rate, audio_duration_ms);
 
     let temp_dir =
-        std::env::temp_dir().join(format!("localvoice_benchmark_{}", uuid::Uuid::new_v4()));
+        std::env::temp_dir().join(format!("blxvoice_benchmark_{}", uuid::Uuid::new_v4()));
     std::fs::create_dir_all(&temp_dir).map_err(|e| format!("Failed to create temp dir: {e}"))?;
     let wav_path = temp_dir.join("synthetic.wav");
 

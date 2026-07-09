@@ -1,10 +1,10 @@
 # Hybrid Transcription Pipeline
 
-This document explains how LocalVoice runs local transcription through a shared orchestrator and engine-specific runtimes.
+This document explains how BLXVoice runs local transcription through a shared orchestrator and engine-specific runtimes.
 
 ## Overview
 
-LocalVoice does not link against native transcription libraries directly. Rust spawns local child processes and normalizes their output into one `TranscriptionResult` shape:
+BLXVoice does not link against native transcription libraries directly. Rust spawns local child processes and normalizes their output into one `TranscriptionResult` shape:
 
 - `WhisperCppEngine` runs `whisper-cli` for GGML `.bin` models.
 - `ParakeetCppEngine` runs `parakeet-cli` for GGUF `.gguf` models.
@@ -82,7 +82,7 @@ whisper-cli \
   -of <output_prefix>
 ```
 
-The JSON output file is parsed for segments and confidence. If JSON mode fails, LocalVoice retries with a plain text invocation and parses timestamped lines where available.
+The JSON output file is parsed for segments and confidence. If JSON mode fails, BLXVoice retries with a plain text invocation and parses timestamped lines where available.
 
 ## Parakeet Protocol
 
@@ -101,7 +101,7 @@ parakeet-cli transcribe \
 
 ## Parakeet Streaming Worker Protocol
 
-Parakeet live streaming uses `parakeet-stream-worker`, a LocalVoice sidecar built against the pinned `mudler/parakeet.cpp` C streaming API. Rust keeps the worker warm during a recording and sends newline-delimited JSON:
+Parakeet live streaming uses `parakeet-stream-worker`, a BLXVoice sidecar built against the pinned `mudler/parakeet.cpp` C streaming API. Rust keeps the worker warm during a recording and sends newline-delimited JSON:
 
 | Type | Direction | Purpose |
 |---|---|---|
@@ -121,7 +121,7 @@ Parakeet live streaming uses `parakeet-stream-worker`, a LocalVoice sidecar buil
 NeMo is optional and app-managed. The Python worker is bundled as a resource at:
 
 ```text
-src-tauri/resources/nemo_worker/localvoice_nemo_worker.py
+src-tauri/resources/nemo_worker/blxvoice_nemo_worker.py
 ```
 
 Rust starts the worker directly with the configured Python interpreter. No Tauri shell plugin is required.
@@ -171,7 +171,7 @@ Local Windows builds run the same Parakeet preparation through `scripts/setup-pa
 
 Release jobs use `pnpm install --frozen-lockfile` so packaging sees the same frontend dependency graph as CI. When Tauri is updated, keep the Rust `tauri` crate and frontend `@tauri-apps/api` package on the same major/minor version; `tauri build` fails early when they drift.
 
-Release jobs audit that the bundled sidecars and NeMo worker resource are present before building installers. Public installers bundle:
+Release jobs audit that the bundled sidecars and NeMo worker resource are present before building installers. Installers bundle:
 
 - `whisper-cli`
 - `parakeet-cli`
@@ -179,7 +179,7 @@ Release jobs audit that the bundled sidecars and NeMo worker resource are presen
 - Required Parakeet runtime libraries where the platform build emits them.
 - NeMo worker script and manifest resources
 
-Public installers do not bundle:
+Installers do not bundle:
 
 - Whisper, Parakeet, Nemotron, or `.nemo` model weights.
 - Python, NeMo, CUDA, or Vulkan runtime stacks.
@@ -221,7 +221,7 @@ src-tauri/binaries/parakeet-stream-worker-x86_64-pc-windows-msvc.exe --health
 For NeMo:
 
 ```bash
-python src-tauri/resources/nemo_worker/localvoice_nemo_worker.py --health
+python src-tauri/resources/nemo_worker/blxvoice_nemo_worker.py --health
 ```
 
 ## Related Documentation

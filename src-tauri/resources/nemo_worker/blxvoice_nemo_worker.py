@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Optional NVIDIA NeMo worker for LocalVoice.
+"""Optional NVIDIA NeMo worker for BLXVoice.
 
 The main Tauri process starts this script as a separate process and talks to it
 over newline-delimited JSON. The worker is intentionally optional: health checks
@@ -129,7 +129,7 @@ def transcribe_file(audio_path: str, language: str) -> None:
 
 
 def handle_stream_audio(request: dict[str, Any]) -> None:
-    # NeMo exposes several model-specific streaming APIs. LocalVoice only enables
+    # NeMo exposes several model-specific streaming APIs. BLXVoice only enables
     # this path once the installed runtime provides a compatible warm stream
     # method; until then the Rust side falls back to WAV transcription on stop.
     if not hasattr(MODEL, "streaming_transcribe"):
@@ -137,7 +137,7 @@ def handle_stream_audio(request: dict[str, Any]) -> None:
             {
                 "type": "error",
                 "ok": False,
-                "message": "The installed NeMo model/runtime does not expose LocalVoice-compatible streaming.",
+                "message": "The installed NeMo model/runtime does not expose BLXVoice-compatible streaming.",
             }
         )
         return
@@ -146,7 +146,7 @@ def handle_stream_audio(request: dict[str, Any]) -> None:
         {
             "type": "error",
             "ok": False,
-            "message": "LocalVoice-compatible NeMo streaming is not enabled for this runtime yet.",
+            "message": "BLXVoice-compatible NeMo streaming is not enabled for this runtime yet.",
         }
     )
 

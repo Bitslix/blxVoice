@@ -2,11 +2,11 @@
 
 ## What It Does
 
-LocalVoice lets you dictate text into any desktop application entirely offline, using local transcription models and sidecar runtimes.
+BLXVoice lets you dictate text into any desktop application entirely offline, using local transcription models and sidecar runtimes.
 
 ## First Launch
 
-When you start LocalVoice for the first time:
+When you start BLXVoice for the first time:
 
 1. The main window opens by default, including when setup is needed.
 2. The default recording overlay appears only while you record.

@@ -147,7 +147,7 @@ mod tests {
     #[test]
     fn includes_installed_resources_runtime_dir_when_present() {
         let root = std::env::temp_dir().join(format!(
-            "localvoice-parakeet-runtime-test-{}",
+            "blxvoice-parakeet-runtime-test-{}",
             std::process::id()
         ));
         let runtime = root.join("resources").join("parakeet-runtime");

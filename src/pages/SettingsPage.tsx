@@ -267,8 +267,8 @@ export default function SettingsPage() {
       await loadUpdateStatus();
       setUpdateCheckMessage(
         updateInfo
-          ? `LocalVoice ${updateInfo.version} is available.`
-          : "LocalVoice is up to date."
+          ? `BLXVoice ${updateInfo.version} is available.`
+          : "BLXVoice is up to date."
       );
     } catch (e) {
       setUpdateCheckMessage(e instanceof Error ? e.message : String(e));
@@ -432,7 +432,7 @@ export default function SettingsPage() {
             icon={Timer}
             iconClass="text-amber-400"
             label="Streaming chunk size"
-            description="How often LocalVoice sends captured audio to the streaming worker."
+            description="How often BLXVoice sends captured audio to the streaming worker."
           >
             <Select
               value={streamingChunkMs}
@@ -755,7 +755,7 @@ export default function SettingsPage() {
         />
       </SettingRow>
 
-      <SettingRow icon={Download} iconClass="text-cyan-400" label="Automatic updates" description="Check GitHub releases for new LocalVoice versions on startup.">
+      <SettingRow icon={Download} iconClass="text-cyan-400" label="Automatic updates" description="Check GitHub releases for new BLXVoice versions on startup.">
         <Switch
           checked={autoUpdate}
           onCheckedChange={(v) => set("app.auto_update", String(v))}
