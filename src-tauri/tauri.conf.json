@@ -4,7 +4,7 @@
   "version": "1.0.1",
   "identifier": "com.bitslix.blxvoice",
   "build": {
-    "beforeDevCommand": "npm run dev",
+    "beforeDevCommand": "pnpm run tauri:dev:prepare && pnpm run dev",
     "devUrl": "http://localhost:1420",
     "beforeBuildCommand": "pnpm run tauri:prepare",
     "frontendDist": "../dist"

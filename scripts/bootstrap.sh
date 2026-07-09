@@ -67,6 +67,7 @@ esac
 
 WHISPER_BIN="$WHISPER_DIR/whisper-cli-${RUST_TRIPLE}"
 PARAKEET_BIN="$WHISPER_DIR/parakeet-cli-${RUST_TRIPLE}"
+DEV_PLACEHOLDER_MARKER="BLXVOICE_DEV_SIDECAR_PLACEHOLDER"
 
 # Colors
 RED='\033[0;31m'
@@ -90,6 +91,11 @@ print_warn() {
 
 print_fail() {
     echo -e "${RED}[FAIL] $1${NC}"
+}
+
+is_dev_placeholder() {
+    local path="$1"
+    [[ -f "$path" ]] && grep -q "$DEV_PLACEHOLDER_MARKER" "$path" 2>/dev/null
 }
 
 check_prerequisite() {
@@ -160,9 +166,12 @@ if [[ "$SKIP_WHISPER" != "true" ]]; then
     print_step "Setting up whisper.cpp binaries..."
     mkdir -p "$WHISPER_DIR"
 
-    if [[ -f "$WHISPER_BIN" ]]; then
+    if [[ -f "$WHISPER_BIN" ]] && ! is_dev_placeholder "$WHISPER_BIN"; then
         print_success "whisper-cli already present at $WHISPER_BIN"
     else
+        if is_dev_placeholder "$WHISPER_BIN"; then
+            print_warn "Replacing development placeholder at $WHISPER_BIN"
+        fi
         if [[ "$PLATFORM" == "linux" ]]; then
             # Try pre-built Linux binary from whisper.cpp releases.
             WHISPER_URL="https://github.com/ggerganov/whisper.cpp/releases/download/v1.7.1/whisper-bin-linux-x64.tar.gz"
@@ -226,9 +235,12 @@ if [[ "$SKIP_PARAKEET" != "true" ]]; then
     print_step "Setting up parakeet.cpp sidecar..."
     mkdir -p "$WHISPER_DIR"
 
-    if [[ -f "$PARAKEET_BIN" ]]; then
+    if [[ -f "$PARAKEET_BIN" ]] && ! is_dev_placeholder "$PARAKEET_BIN"; then
         print_success "parakeet-cli already present at $PARAKEET_BIN"
     else
+        if is_dev_placeholder "$PARAKEET_BIN"; then
+            print_warn "Replacing development placeholder at $PARAKEET_BIN"
+        fi
         PARAKEET_TAG="v0.3.2"
         if [[ "$PLATFORM" == "linux" ]]; then
             if [[ "$RUST_TRIPLE" == "aarch64-unknown-linux-gnu" ]]; then
@@ -313,12 +325,12 @@ echo "========================================"
 echo -e "${NC}"
 echo "Next steps:"
 echo "  1. Run 'pnpm tauri dev' to start development"
-if [[ ! -f "$WHISPER_BIN" ]]; then
+if [[ ! -f "$WHISPER_BIN" ]] || is_dev_placeholder "$WHISPER_BIN"; then
     echo "  2. whisper-cli is missing — place it at:"
     echo "     $WHISPER_BIN"
     echo "     Or set WHISPER_BIN_PATH=/path/to/whisper-cli in your environment."
 fi
-if [[ ! -f "$PARAKEET_BIN" ]]; then
+if [[ ! -f "$PARAKEET_BIN" ]] || is_dev_placeholder "$PARAKEET_BIN"; then
     echo "  3. parakeet-cli is missing - place it at:"
     echo "     $PARAKEET_BIN"
     echo "     Or set PARAKEET_BIN_PATH=/path/to/parakeet-cli in your environment."

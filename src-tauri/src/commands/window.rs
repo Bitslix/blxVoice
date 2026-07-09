@@ -177,8 +177,6 @@ pub fn calculate_bottom_center_position(
 }
 
 /// Opens the main window, creating it if it does not yet exist.
-/// On Windows a window that has never been visible can silently fail to show,
-/// so we destroy and recreate it as a fallback.
 #[tauri::command]
 pub fn open_main_window(app: AppHandle) -> CmdResult<()> {
     show_main_window(&app, "command")
@@ -201,17 +199,6 @@ pub fn show_main_window(app: &AppHandle, source: &str) -> CmdResult<()> {
         log_main_window_state(&w, "after show");
         w.set_focus().map_err(|e| main_window_error("focus", e))?;
         log_main_window_state(&w, "after focus");
-
-        if !w
-            .is_visible()
-            .map_err(|e| main_window_error("read visibility", e))?
-        {
-            log::warn!("Main window is still hidden after show; recreating it");
-            if let Err(e) = w.destroy() {
-                log::warn!("Main window destroy before recreate failed: {e}");
-            }
-            return create_main_window(app);
-        }
     } else {
         log::warn!("Main window handle not found; creating a new window");
         return create_main_window(app);

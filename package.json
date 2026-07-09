@@ -23,6 +23,7 @@
         "build": "tsc && vite build",
         "preview": "vite preview",
         "tauri": "tauri",
+        "tauri:dev:prepare": "node scripts/ensure-dev-sidecars.mjs",
         "tauri:prepare": "node scripts/prepare-tauri-build.mjs",
         "test": "vitest run",
         "test:watch": "vitest",

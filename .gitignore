@@ -18,6 +18,7 @@ dist-ssr
 src-tauri/binaries/whisper-bin-*/
 src-tauri/binaries/whisper-cli-*
 src-tauri/binaries/parakeet-cli-*
+src-tauri/binaries/parakeet-stream-worker-*
 src-tauri/binaries/*.exe
 src-tauri/binaries/*.dll
 src-tauri/parakeet-runtime/*

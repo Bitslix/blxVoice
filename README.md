@@ -161,7 +161,7 @@ The script will:
 2. Check Linux system packages (Linux only)
 3. Install frontend dependencies
 4. Download or build whisper.cpp binaries for your platform (skip with `--skip-whisper`)
-5. Download and verify the pinned parakeet.cpp CLI, build the streaming worker, and stage Parakeet runtime DLLs (skip with `--skip-parakeet`)
+5. Download and verify the pinned parakeet.cpp CLI; Windows build preparation also builds the streaming worker and stages Parakeet runtime DLLs (skip with `--skip-parakeet`)
 6. Verify the Tauri CLI is available
 7. Run a Rust compilation check (skip with `--skip-verification`)
 
@@ -177,6 +177,8 @@ pnpm tauri dev
 # Release build with updater artifacts
 pnpm tauri build
 ```
+
+`pnpm tauri dev` first runs `pnpm run tauri:dev:prepare`. That script creates target-triple placeholder sidecars in `src-tauri/binaries/` when real local sidecars are missing, which lets Tauri's `externalBin` validation pass for UI/backend development. Real transcription still requires the actual Whisper/Parakeet binaries from the bootstrap script, CI setup, or the manual steps below.
 
 On Windows, `pnpm tauri build` runs `pnpm run tauri:prepare` before Tauri bundles the app. That preparation builds the frontend, downloads the pinned Parakeet CLI when missing, builds `parakeet-stream-worker.exe`, and stages required DLLs under `src-tauri/parakeet-runtime/`.
 
@@ -195,7 +197,7 @@ release build.
 
 ### Sidecar Binaries (required)
 
-The bootstrap script and Windows Tauri build preparation handle this automatically. For manual setup, you need to place platform-appropriate sidecar binaries in `src-tauri/binaries/`:
+The bootstrap script, development preparation script, and Windows Tauri build preparation handle the files Tauri expects in `src-tauri/binaries/`. The development preparation script writes placeholders only; for real transcription, place platform-appropriate sidecar binaries in `src-tauri/binaries/`:
 
 | Sidecar | Target name example |
 |---|---|
@@ -256,7 +258,7 @@ Use the pinned `v0.3.2` CPU/portable release assets from [mudler/parakeet.cpp](h
 | Linux x64 | `src-tauri/binaries/parakeet-cli-x86_64-unknown-linux-gnu` |
 | Linux arm64 | `src-tauri/binaries/parakeet-cli-aarch64-unknown-linux-gnu` |
 
-> All sidecar binaries are excluded from version control (`.gitignore`). Every contributor must provide them manually or run the bootstrap script.
+> All real sidecar binaries and generated development placeholders are excluded from version control (`.gitignore`). Every contributor must provide real sidecars manually or run the bootstrap script before testing transcription.
 
 ### Platform-specific notes
 

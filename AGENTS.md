@@ -4,17 +4,17 @@ This file provides guidance to Codex (Codex.ai/code) when working with code in t
 
 ## Rules (always apply — override everything else)
 
-Project-specific rules live in `.Codex/rules/`. They are **mandatory** and take precedence over all other instructions, skills, and defaults. Read and follow every rule in that folder before doing any work.
+Project-specific rules live in `.agents/rules/`. They are **mandatory** and take precedence over all other instructions, skills, and defaults. Read and follow every rule in that folder before doing any work.
 
 | # | File | Summary |
 |---|------|---------|
-| 01 | `.Codex/rules/01-mask-credentials-on-output.md` | Never output secrets, keys, or passwords in plain text |
-| 02 | `.Codex/rules/02-codebase-english.md` | All code, comments, identifiers, and commit messages must be in English |
-| 03 | `.Codex/rules/03-readme-up-to-date.md` | Keep `README.md` current whenever build steps, features, or milestone status change |
-| 04 | `.Codex/rules/04-feature-branch-per-milestone.md` | Each milestone/feature lives on its own branch (`ms/0X-*`); never commit directly to `main` |
-| 05 | `.Codex/rules/05-feature-documentation.md` | Every feature must be documented in `docs/user/` and `docs/dev/` before the milestone is merged |
-| 06 | `.Codex/rules/06-document-learnings.md` | Every bugfix or non-obvious insight is saved as an individual file in `~/.Codex/learnings/` |
-| 07 | `.Codex/rules/07-code-quality-and-architecture.md` | Analyse before implementing; reuse over new code; clean, modular, type-safe, consistent architecture at all times |
+| 01 | `.agents/rules/01-mask-credentials-on-output.md` | Never output secrets, keys, or passwords in plain text |
+| 02 | `.agents/rules/02-codebase-english.md` | All code, comments, identifiers, and commit messages must be in English |
+| 03 | `.agents/rules/03-readme-up-to-date.md` | Keep `README.md` current whenever build steps, features, or milestone status change |
+| 04 | `.agents/rules/04-feature-branch-per-milestone.md` | Each milestone/feature lives on its own branch (`ms/0X-*`); never commit directly to `main` |
+| 05 | `.agents/rules/05-feature-documentation.md` | Every feature must be documented in `docs/user/` and `docs/dev/` before the milestone is merged |
+| 06 | `.agents/rules/06-document-learnings.md` | Every bugfix or non-obvious insight is saved as an individual file in `~/.agents/learnings/` |
+| 07 | `.agents/rules/07-code-quality-and-architecture.md` | Analyse before implementing; reuse over new code; clean, modular, type-safe, consistent architecture at all times |
 
 ## Project Overview
 
